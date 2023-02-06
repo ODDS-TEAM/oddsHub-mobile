@@ -15,6 +15,12 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-# STEP
+# SET UP
+- install `FVM` (Flutter Version Management) or install `SDK`
+- using flutter `3.0.5`
+- run `flutter doctor` and do follow the suggest step for make the check on doctor summary
+- run `flutter pub get`
+
+# STEP FOR RUN
 - open Simulator
-- flutter run
+- run `flutter run`
