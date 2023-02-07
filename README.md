@@ -24,3 +24,10 @@ samples, guidance on mobile development, and a full API reference.
 # STEP FOR RUN
 - open Simulator
 - run `flutter run`
+
+# STEP FOR RUN ACTUAL DEVICE
+- when plug device to this computer choose to trust this computer when prompted.
+- enable Developer Mode in Settings → Privacy & Security -> Developer Mode 
+- If we cannot find Developer Mode Open Xcode
+    - select your device > run project 
+    - your device > Settings > General > Device Management > [your new certificate] > Trust 
