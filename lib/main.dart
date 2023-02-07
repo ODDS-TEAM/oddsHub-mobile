@@ -16,32 +16,32 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'NotoSans',
         textTheme: TextTheme(
-          headline1: TextStyle(
+          displayLarge: TextStyle(
             color: AppColors.primaryButton,
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
-          headline2: TextStyle(
+          displayMedium: TextStyle(
             color: AppColors.primaryButton,
             fontSize: 24,
             fontWeight: FontWeight.normal,
           ),
-          subtitle1: TextStyle(
+          titleMedium: TextStyle(
             color: AppColors.primaryButton,
             fontSize: 18,
             fontWeight: FontWeight.normal,
           ),
-          bodyText1: TextStyle(
+          bodyLarge: TextStyle(
             color: AppColors.primaryButton,
             fontSize: 24,
             fontWeight: FontWeight.normal,
           ),
-          bodyText2: TextStyle(
+          bodyMedium: TextStyle(
             color: AppColors.primaryButton,
             fontSize: 24,
             fontWeight: FontWeight.normal,
           ),
-          button: TextStyle(
+          labelLarge: TextStyle(
             color: AppColors.secondaryButton,
             fontSize: 20,
             fontWeight: FontWeight.bold,

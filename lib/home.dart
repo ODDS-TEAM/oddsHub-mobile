@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oddshub/send_email.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -55,6 +56,17 @@ class _HomePageState extends State<HomePage> {
                           'Description: ${course.description}',
                           style: Theme.of(context).textTheme.headline2,
                         ),
+                        ElevatedButton(
+                          onPressed: (() => {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const SendEmailPage(),
+                                  ),
+                                )
+                              }),
+                          child: const Text('go to send email'),
+                        )
                       ],
                     ),
                   ),
