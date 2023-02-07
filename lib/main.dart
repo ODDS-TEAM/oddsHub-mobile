@@ -50,8 +50,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: AppColors.primaryMaterialColor,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.primaryButton,
-            foregroundColor: AppColors.primaryBackground,
+            primary: AppColors.primaryButton,
+            onPrimary: AppColors.primaryBackground,
           ),
         ),
       ),
