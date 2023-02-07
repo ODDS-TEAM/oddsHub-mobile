@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.oddshub">
+    package="team.odds.oddshub">
    <application
         android:label="Odds"
         android:name="${applicationName}"
