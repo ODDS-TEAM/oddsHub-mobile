@@ -42,19 +42,19 @@ class _HomePageState extends State<HomePage> {
                   padding: const EdgeInsets.all(10),
                   height: 250,
                   decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black26, width: 1),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(30))),
+                    border: Border.all(color: Colors.black26, width: 1),
+                    borderRadius: const BorderRadius.all(Radius.circular(30)),
+                  ),
                   child: Center(
                     child: Column(
                       children: [
                         Text(
                           'Course Name: ${course.name}',
-                          style: Theme.of(context).textTheme.headline2,
+                          style: Theme.of(context).textTheme.displayMedium,
                         ),
                         Text(
                           'Description: ${course.description}',
-                          style: Theme.of(context).textTheme.headline2,
+                          style: Theme.of(context).textTheme.displayMedium,
                         ),
                         ElevatedButton(
                           onPressed: (() => {
@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 )
                               }),
-                          child: const Text('go to send email'),
+                          child: const Text('Go to send email'),
                         )
                       ],
                     ),

@@ -47,6 +47,13 @@ class MyApp extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        primarySwatch: AppColors.primaryMaterialColor,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: AppColors.primaryButton,
+            foregroundColor: AppColors.primaryBackground,
+          ),
+        ),
       ),
       home: const HomePage(),
     );
