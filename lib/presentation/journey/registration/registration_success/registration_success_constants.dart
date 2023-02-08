@@ -19,4 +19,6 @@ class RegistrationSuccessConstants {
   static Key okButtonKey = const Key(
     'registration-success-ok-button',
   );
+
+  static String paymentQrImage = 'assets/images/registration/payment-qr.jpeg';
 }

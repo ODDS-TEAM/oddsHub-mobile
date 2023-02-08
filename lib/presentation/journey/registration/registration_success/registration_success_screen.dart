@@ -53,7 +53,9 @@ class RegistrationSuccessScreen extends StatelessWidget {
                 ),
                 Image(
                   key: RegistrationSuccessConstants.paymentQrImageKey,
-                  image: const AssetImage('assets/images/payment-qr.jpeg'),
+                  image: AssetImage(
+                    RegistrationSuccessConstants.paymentQrImage,
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
