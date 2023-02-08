@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/colors.dart';
 import 'package:oddshub/presentation/journey/Registration/registration_success_screen.dart';
+import 'package:oddshub/presentation/widget/common_text_field.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -10,34 +11,17 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreen extends State<RegistrationScreen> {
-  Widget _commonTextField(String text) {
-    return Container(
-      margin: const EdgeInsets.all(10),
-      height: 55,
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: TextField(
-        decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          labelText: text,
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          const Text('course Name:'),
-          _commonTextField('Title'),
-          _commonTextField('Name'),
-          _commonTextField('Lastname'),
-          _commonTextField('Email'),
-          _commonTextField('Phone Number'),
+          const Text('Course Name:'),
+          commonTextField('Title'),
+          commonTextField('First name'),
+          commonTextField('Last name'),
+          commonTextField('Email'),
+          commonTextField('Phone Number'),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
