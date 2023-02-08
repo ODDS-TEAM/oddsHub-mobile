@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:oddshub/colors.dart';
 import 'package:oddshub/presentation/journey/registration/registration_constants.dart';
 import 'package:oddshub/presentation/widget/common_text_field.dart';
+import 'package:oddshub/presentation/widget/layout_appbar.dart';
 import 'package:oddshub/routes.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -15,6 +16,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: appBar(),
       body: Column(
         children: [
           const Text('Course Name:'),
@@ -46,7 +48,10 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                   margin: const EdgeInsets.all(8),
                   child: ElevatedButton(
                     key: RegistrationConstants.cancelButtonKey,
-                    onPressed: () => {},
+                    onPressed: () => Navigator.pushNamed(
+                      context,
+                      Routes.home,
+                    ),
                     style: ElevatedButton.styleFrom(primary: Colors.white),
                     child: const Text(
                       'Cancel',
