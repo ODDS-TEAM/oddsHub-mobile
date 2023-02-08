@@ -16,7 +16,7 @@ void main() {
   setUpAll(MockRoute.setUp);
   Widget prepareWidget() {
     final widget = MaterialApp(
-      home: const SendEmailScreen(),
+      home: SendEmailScreen(),
       navigatorObservers: [mockObserver],
     );
 

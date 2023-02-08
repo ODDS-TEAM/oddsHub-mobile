@@ -74,7 +74,7 @@ class MyApp extends StatelessWidget {
                 );
               },
             ),
-        Routes.sendEmail: (context) => const SendEmailScreen(),
+        Routes.sendEmail: (context) => SendEmailScreen(),
       },
     );
   }
