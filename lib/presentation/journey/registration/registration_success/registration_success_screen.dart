@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/colors.dart';
+import 'package:oddshub/presentation/journey/registration/registration_success/person.dart';
 import 'package:oddshub/presentation/journey/registration/registration_success/registration_success_constants.dart';
 
 class RegistrationSuccessScreen extends StatelessWidget {
@@ -12,6 +13,9 @@ class RegistrationSuccessScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final person = ModalRoute.of(context)?.settings.arguments as Person?;
+    final name = person?.fullName ?? '';
+
     return Container(
       color: AppColors.primaryBackground,
       child: SingleChildScrollView(
@@ -24,7 +28,7 @@ class RegistrationSuccessScreen extends StatelessWidget {
             ),
             Text(
               key: RegistrationSuccessConstants.subtitle,
-              'Mr. Done Tester',
+              name,
               style: Theme.of(context).textTheme.subtitle1,
             ),
             Text(

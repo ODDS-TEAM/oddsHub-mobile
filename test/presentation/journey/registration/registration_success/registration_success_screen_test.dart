@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:oddshub/presentation/journey/registration/registration_success/person.dart';
 import 'package:oddshub/presentation/journey/registration/registration_success/registration_success_constants.dart';
 import 'package:oddshub/presentation/journey/registration/registration_success/registration_success_screen.dart';
 
@@ -13,7 +14,7 @@ void main() {
     mockOkButtonDidTap = MockFunction().callback;
   });
 
-  Widget _prepareWidget() {
+  Widget _prepareWidget({Person? person}) {
     return MaterialApp(
       onGenerateRoute: (_) => MaterialPageRoute(
         builder: (context) {
@@ -21,7 +22,7 @@ void main() {
             okButtonDidTap: mockOkButtonDidTap,
           );
         },
-        settings: const RouteSettings(arguments: null),
+        settings: RouteSettings(arguments: person),
       ),
     );
   }
@@ -65,6 +66,20 @@ void main() {
       );
       expect(
         find.byKey(RegistrationSuccessConstants.okButton),
+        findsOneWidget,
+      );
+    },
+  );
+
+  testWidgets(
+    'Should display customer full name',
+    (tester) async {
+      await tester.pumpWidget(
+        _prepareWidget(person: Person('MR.', 'Pop', 'Kung')),
+      );
+
+      expect(
+        find.text('MR. Pop Kung'),
         findsOneWidget,
       );
     },
