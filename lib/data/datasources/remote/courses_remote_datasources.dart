@@ -1,10 +1,12 @@
-import 'dart:io';
+import 'package:oddshub/data/datasources/remote/my_client.dart';
+
 
 class CoursesRemoteDatasources {
-  final HttpClient httpClient;
-  CoursesRemoteDatasources({required this.httpClient});
+  // final HttpClient httpClient;
+  // CoursesRemoteDatasources({required this.httpClient});
 
   Future<void> sendEmailWelcome() async {
-    await httpClient.post('', 0132, '');
+    await MyClient.httpClient.post('', 0132, '');
   }
 }
+

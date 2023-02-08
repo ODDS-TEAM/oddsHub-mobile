@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:oddshub/colors.dart';
+import 'package:oddshub/data/datasources/remote/my_client.dart';
 import 'package:oddshub/presentation/journey/home.dart';
 import 'package:oddshub/presentation/journey/registration/registration_success/registration_success_screen.dart';
 import 'package:oddshub/presentation/journey/registration/registration_screen.dart';
@@ -7,8 +10,10 @@ import 'package:oddshub/routes.dart';
 import 'package:oddshub/presentation/journey/send_email/send_email_screen.dart';
 
 void main() {
+  MyClient.httpClient = HttpClient();
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

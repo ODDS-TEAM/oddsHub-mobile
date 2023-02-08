@@ -5,5 +5,7 @@ class RegistrationRemoteDatasources {
     String lastName,
     String email,
     String phoneNumber,
-  ) async {}
+  ) async {
+    return;
+  }
 }
