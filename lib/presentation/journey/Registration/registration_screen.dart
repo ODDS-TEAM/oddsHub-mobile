@@ -44,14 +44,29 @@ class _RegistrationScreen extends State<RegistrationScreen> {
               hintText: 'Phone Number',
             ),
           ),
-          ElevatedButton(
-            onPressed: () => {},
-            child: const Text('Cancel'),
-          ),
-          ElevatedButton(
-            onPressed: () => {},
-            child: const Text('Save'),
-          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Expanded(
+                child: Container(
+                  margin: const EdgeInsets.all(8),
+                  child: ElevatedButton(
+                    onPressed: () => {},
+                    child: const Text('Cancel'),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  margin: const EdgeInsets.all(8),
+                  child: ElevatedButton(
+                    onPressed: () => {},
+                    child: const Text('Save'),
+                  ),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
