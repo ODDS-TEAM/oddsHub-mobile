@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SendEmailPage extends StatelessWidget {
-  const SendEmailPage({super.key});
+class SendEmailScreen extends StatelessWidget {
+  const SendEmailScreen({super.key});
   Key get sendButtonKey => const Key('send-email-button');
   Key get backButtonKey => const Key('back-button');
 

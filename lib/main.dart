@@ -4,7 +4,7 @@ import 'package:oddshub/presentation/journey/home.dart';
 import 'package:oddshub/presentation/journey/registration/registration_success_screen.dart';
 import 'package:oddshub/presentation/journey/registration/registration_screen.dart';
 import 'package:oddshub/routes.dart';
-import 'package:oddshub/presentation/journey/email/send_email.dart';
+import 'package:oddshub/presentation/journey/send_email/send_email_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -63,7 +63,7 @@ class MyApp extends StatelessWidget {
         Routes.registration: (context) => const RegistrationScreen(),
         Routes.registrationSuccess: (context) =>
             const RegistrationSuccessScreen(),
-        Routes.sendEmail: (context) => const SendEmailPage(),
+        Routes.sendEmail: (context) => const SendEmailScreen(),
       },
     );
   }
