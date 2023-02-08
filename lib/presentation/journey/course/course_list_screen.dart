@@ -31,40 +31,43 @@ class _CourseListScreenState extends State<CourseListScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 16, 16, 10),
+                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
                     child: Text(
                       course.name,
                       style: Theme.of(context).textTheme.headline1,
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 20),
                     child: Text(
                       course.formattedDate,
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
                   ),
-                  ListTile(
-                    leading: const CircleAvatar(
-                      backgroundImage: AssetImage(
-                        CourseListConstants.oddsLogoImage,
-                      ),
-                    ),
-                    title: Text(
-                      course.instructor,
-                      style: Theme.of(context).textTheme.subtitle1,
-                    ),
-                  ),
                   Image.asset(course.image),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
+                    padding: const EdgeInsets.fromLTRB(0, 8, 16, 0),
+                    child: ListTile(
+                      leading: const CircleAvatar(
+                        backgroundImage: AssetImage(
+                          CourseListConstants.oddsLogoImage,
+                        ),
+                      ),
+                      title: Text(
+                        course.instructor,
+                        style: Theme.of(context).textTheme.subtitle1,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 10),
                     child: Text(
                       course.description,
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                    padding: const EdgeInsets.fromLTRB(16, 10, 16, 20),
                     child: createRegistrationButton(),
                   ),
                 ],
