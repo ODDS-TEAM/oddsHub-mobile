@@ -52,7 +52,11 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                   margin: const EdgeInsets.all(8),
                   child: ElevatedButton(
                     onPressed: () => {},
-                    child: const Text('Cancel'),
+                    style: ElevatedButton.styleFrom(primary: Colors.white),
+                    child: const Text(
+                      'Cancel',
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                 ),
               ),
@@ -61,6 +65,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                   margin: const EdgeInsets.all(8),
                   child: ElevatedButton(
                     onPressed: () => {},
+                    style: ElevatedButton.styleFrom(primary: Colors.blue),
                     child: const Text('Save'),
                   ),
                 ),
