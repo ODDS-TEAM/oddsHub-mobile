@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:oddshub/Course/course_list_constants.dart';
+import 'package:oddshub/colors.dart';
+import 'package:oddshub/send_email.dart';
 
 class Course {
   final String name;
@@ -48,7 +51,7 @@ class _CourseListScreenState extends State<CourseListScreen> {
                   ListTile(
                     leading: const CircleAvatar(
                       backgroundImage: AssetImage(
-                        'assets/images/logo.png',
+                        CourseListConstants.oddsLogoImage,
                       ),
                     ),
                     title: Text(
@@ -56,7 +59,7 @@ class _CourseListScreenState extends State<CourseListScreen> {
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
                   ),
-                  Image.asset('assets/images/product_Dis_covery.png'),
+                  Image.asset(CourseListConstants.productDiscoveryImage),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
                     child: Text(
@@ -73,7 +76,23 @@ class _CourseListScreenState extends State<CourseListScreen> {
                   ),
                 ],
               ),
-            )
+            ),
+          ElevatedButton(
+            onPressed: (() => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SendEmailPage(),
+                    ),
+                  )
+                }),
+            child: Text(
+              'Go to send email',
+              style: Theme.of(context).textTheme.button?.copyWith(
+                    color: AppColors.primaryBackground,
+                  ),
+            ),
+          )
         ],
       ),
     );
