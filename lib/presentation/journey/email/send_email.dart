@@ -13,17 +13,13 @@ class SendEmailPage extends StatelessWidget {
           children: [
             ElevatedButton(
               key: backButtonKey,
-              onPressed: () => {Navigator.pop(context)},
-              child: const Text(
-                'Back',
-              ),
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Back'),
             ),
             ElevatedButton(
               key: sendButtonKey,
               onPressed: () => {},
-              child: const Text(
-                'Send',
-              ),
+              child: const Text('Send'),
             ),
           ],
         ),

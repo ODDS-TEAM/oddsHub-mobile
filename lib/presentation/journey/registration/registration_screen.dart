@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/colors.dart';
-import 'package:oddshub/presentation/journey/Registration/registration_success_screen.dart';
 import 'package:oddshub/presentation/widget/common_text_field.dart';
 import 'package:oddshub/routes.dart';
 

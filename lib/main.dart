@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/colors.dart';
-import 'package:oddshub/home.dart';
-import 'package:oddshub/presentation/journey/Registration/registration_success_screen.dart';
+import 'package:oddshub/presentation/journey/home.dart';
+import 'package:oddshub/presentation/journey/registration/registration_success_screen.dart';
 import 'package:oddshub/presentation/journey/registration/registration_screen.dart';
 import 'package:oddshub/routes.dart';
-import 'package:oddshub/send_email.dart';
+import 'package:oddshub/presentation/journey/email/send_email.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
