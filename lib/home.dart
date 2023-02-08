@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/presentation/journey/Course/course_list_screen.dart';
 
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
