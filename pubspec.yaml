@@ -27,6 +27,8 @@ dev_dependencies:
 flutter:
   assets: 
   - assets/images/
+  - assets/images/courses/
+  - assets/images/registration/
   uses-material-design: true
   fonts:
     - family: NotoSans
