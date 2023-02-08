@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
 class RegistrationSuccessConstants {
-  static Key title = const Key(
-    'registration_success_title',
+  static Key titleKey = const Key(
+    'registration-success-title',
   );
-  static Key subtitle = const Key(
-    'registration_success_sub_title',
+  static Key subtitleKey = const Key(
+    'registration-success-sub-title',
   );
-  static Key paymentMethodTitle = const Key(
-    'registration_success_payment_method_title',
+  static Key paymentMethodTitleKey = const Key(
+    'registration-success-payment-method-title',
   );
-  static Key paymentQrImage = const Key(
-    'registration_success_payment_qr_image',
+  static Key paymentQrImageKey = const Key(
+    'registration-success-payment-qr-image',
   );
-  static Key paymentDescription = const Key(
-    'registration_success_payment_description',
+  static Key paymentDescriptionKey = const Key(
+    'registration-success-payment-description',
   );
-  static Key okButton = const Key(
-    'registration_success_ok_button',
+  static Key okButtonKey = const Key(
+    'registration-success-ok-button',
   );
 }

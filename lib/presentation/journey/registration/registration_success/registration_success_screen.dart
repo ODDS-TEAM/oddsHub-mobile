@@ -22,31 +22,31 @@ class RegistrationSuccessScreen extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              key: RegistrationSuccessConstants.title,
+              key: RegistrationSuccessConstants.titleKey,
               'registration complete',
               style: Theme.of(context).textTheme.subtitle1,
             ),
             Text(
-              key: RegistrationSuccessConstants.subtitle,
+              key: RegistrationSuccessConstants.subtitleKey,
               name,
               style: Theme.of(context).textTheme.subtitle1,
             ),
             Text(
-              key: RegistrationSuccessConstants.paymentMethodTitle,
+              key: RegistrationSuccessConstants.paymentMethodTitleKey,
               'Payment method',
               style: Theme.of(context).textTheme.subtitle1,
             ),
             Image(
-              key: RegistrationSuccessConstants.paymentQrImage,
+              key: RegistrationSuccessConstants.paymentQrImageKey,
               image: const AssetImage('assets/images/payment-qr.jpeg'),
             ),
             Text(
-              key: RegistrationSuccessConstants.paymentDescription,
+              key: RegistrationSuccessConstants.paymentDescriptionKey,
               'Please send the payment slip to this email jane@odds.team',
               style: Theme.of(context).textTheme.subtitle1,
             ),
             ElevatedButton(
-              key: RegistrationSuccessConstants.okButton,
+              key: RegistrationSuccessConstants.okButtonKey,
               onPressed: okButtonDidTap,
               child: const Text('OK'),
             )

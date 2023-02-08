@@ -32,7 +32,7 @@ void main() {
     (WidgetTester tester) async {
       await tester.pumpWidget(_prepareWidget());
 
-      final backButton = find.byKey(RegistrationSuccessConstants.okButton);
+      final backButton = find.byKey(RegistrationSuccessConstants.okButtonKey);
       await tester.tap(backButton);
 
       verify(mockOkButtonDidTap).called(1);
@@ -45,27 +45,27 @@ void main() {
       await tester.pumpWidget(_prepareWidget());
 
       expect(
-        find.byKey(RegistrationSuccessConstants.title),
+        find.byKey(RegistrationSuccessConstants.titleKey),
         findsOneWidget,
       );
       expect(
-        find.byKey(RegistrationSuccessConstants.subtitle),
+        find.byKey(RegistrationSuccessConstants.subtitleKey),
         findsOneWidget,
       );
       expect(
-        find.byKey(RegistrationSuccessConstants.paymentMethodTitle),
+        find.byKey(RegistrationSuccessConstants.paymentMethodTitleKey),
         findsOneWidget,
       );
       expect(
-        find.byKey(RegistrationSuccessConstants.paymentQrImage),
+        find.byKey(RegistrationSuccessConstants.paymentQrImageKey),
         findsOneWidget,
       );
       expect(
-        find.byKey(RegistrationSuccessConstants.paymentDescription),
+        find.byKey(RegistrationSuccessConstants.paymentDescriptionKey),
         findsOneWidget,
       );
       expect(
-        find.byKey(RegistrationSuccessConstants.okButton),
+        find.byKey(RegistrationSuccessConstants.okButtonKey),
         findsOneWidget,
       );
     },
