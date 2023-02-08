@@ -12,14 +12,7 @@ class CourseListScreen extends StatefulWidget {
 }
 
 class _CourseListScreenState extends State<CourseListScreen> {
-  final List<Course> courses = [
-    Course(
-      CourseListConstants.courseName,
-      CourseListConstants.productDiscoveryDescription,
-      CourseListConstants.instructorName,
-      DateTime.now(),
-    ),
-  ];
+  final List<Course> courses = [CourseListConstants.clp];
 
   @override
   Widget build(BuildContext context) {
@@ -33,15 +26,22 @@ class _CourseListScreenState extends State<CourseListScreen> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20),
               ),
-              margin: const EdgeInsets.all(20),
+              margin: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+                    padding: const EdgeInsets.fromLTRB(20, 16, 16, 10),
                     child: Text(
                       course.name,
                       style: Theme.of(context).textTheme.headline1,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                    child: Text(
+                      course.formattedDate,
+                      style: Theme.of(context).textTheme.subtitle1,
                     ),
                   ),
                   ListTile(
@@ -51,23 +51,16 @@ class _CourseListScreenState extends State<CourseListScreen> {
                       ),
                     ),
                     title: Text(
-                      'Instructor: ${course.instructor}',
+                      course.instructor,
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
                   ),
-                  Image.asset(CourseListConstants.productDiscoveryImage),
+                  Image.asset(course.image),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
                     child: Text(
                       course.description,
-                      style: Theme.of(context).textTheme.subtitle1,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-                    child: Text(
-                      'Date: ${course.formattedDate}',
-                      style: Theme.of(context).textTheme.subtitle1,
+                      style: Theme.of(context).textTheme.bodyText1,
                     ),
                   ),
                   Padding(

@@ -36,12 +36,12 @@ class MyApp extends StatelessWidget {
           ),
           bodyText1: TextStyle(
             color: AppColors.primaryButton,
-            fontSize: 24,
+            fontSize: 16,
             fontWeight: FontWeight.normal,
           ),
           bodyText2: TextStyle(
             color: AppColors.primaryButton,
-            fontSize: 24,
+            fontSize: 14,
             fontWeight: FontWeight.normal,
           ),
           button: TextStyle(
