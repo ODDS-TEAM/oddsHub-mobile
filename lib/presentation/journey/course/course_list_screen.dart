@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:oddshub/colors.dart';
 import 'package:oddshub/presentation/journey/Course/course_list_constants.dart';
 import 'package:oddshub/presentation/journey/Registration/registration_screen.dart';
+import 'package:oddshub/routes.dart';
 import 'package:oddshub/send_email.dart';
 
 class Course {
@@ -87,14 +88,7 @@ class _CourseListScreenState extends State<CourseListScreen> {
               ),
             ),
           ElevatedButton(
-            onPressed: (() => {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SendEmailPage(),
-                    ),
-                  )
-                }),
+            onPressed: () => Navigator.pushNamed(context, Routes.sendEmail),
             child: Text(
               'Go to send email',
               style: Theme.of(context).textTheme.button?.copyWith(
@@ -109,14 +103,7 @@ class _CourseListScreenState extends State<CourseListScreen> {
 
   Widget createRegistrationButton() {
     return ElevatedButton(
-      onPressed: (() => {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const RegistrationScreen(),
-              ),
-            )
-          }),
+      onPressed: () => Navigator.pushNamed(context, Routes.registration),
       style: ElevatedButton.styleFrom(
         minimumSize: const Size.fromHeight(50),
       ),

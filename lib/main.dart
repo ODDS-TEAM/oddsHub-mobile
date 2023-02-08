@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/colors.dart';
 import 'package:oddshub/home.dart';
+import 'package:oddshub/presentation/journey/Registration/registration_success_screen.dart';
+import 'package:oddshub/presentation/journey/registration/registration_screen.dart';
+import 'package:oddshub/routes.dart';
+import 'package:oddshub/send_email.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,7 +58,14 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const HomePage(),
+      initialRoute: Routes.home,
+      routes: {
+        Routes.home: (context) => const HomePage(),
+        Routes.registration: (context) => const RegistrationScreen(),
+        Routes.registrationSuccess: (context) =>
+            const RegistrationSuccessScreen(),
+        Routes.sendEmail: (context) => const SendEmailPage(),
+      },
     );
   }
 }
