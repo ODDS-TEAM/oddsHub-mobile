@@ -5,21 +5,31 @@ import 'package:oddshub/presentation/journey/registration/registration_success/r
 import 'package:oddshub/presentation/journey/registration/registration_success/registration_success_screen.dart';
 
 import '../../../../mock/mock_function.dart';
-import '../../../../mock/mock_observer.dart';
 
 void main() {
+  late Function() mockOkButtonDidTap;
+
+  setUp(() {
+    mockOkButtonDidTap = MockFunction().callback;
+  });
+
+  Widget _prepareWidget() {
+    return MaterialApp(
+      onGenerateRoute: (_) => MaterialPageRoute(
+        builder: (context) {
+          return RegistrationSuccessScreen(
+            okButtonDidTap: mockOkButtonDidTap,
+          );
+        },
+        settings: const RouteSettings(arguments: null),
+      ),
+    );
+  }
+
   testWidgets(
     'Should navigate back When user tap the ok button',
     (WidgetTester tester) async {
-      final mockOkButtonDidTap = MockFunction().callback;
-      final mockObserver = MockNavigatorObserver();
-
-      final widget = MaterialApp(
-        home: RegistrationSuccessScreen(okButtonDidTap: mockOkButtonDidTap),
-        navigatorObservers: [mockObserver],
-      );
-
-      await tester.pumpWidget(widget);
+      await tester.pumpWidget(_prepareWidget());
 
       final backButton = find.byKey(RegistrationSuccessConstants.okButton);
       await tester.tap(backButton);
@@ -31,15 +41,7 @@ void main() {
   testWidgets(
     'Should display payment instruction when user registration success',
     (tester) async {
-      final mockOkButtonDidTap = MockFunction().callback;
-      final mockObserver = MockNavigatorObserver();
-
-      final widget = MaterialApp(
-        home: RegistrationSuccessScreen(okButtonDidTap: mockOkButtonDidTap),
-        navigatorObservers: [mockObserver],
-      );
-
-      await tester.pumpWidget(widget);
+      await tester.pumpWidget(_prepareWidget());
 
       expect(
         find.byKey(RegistrationSuccessConstants.title),
