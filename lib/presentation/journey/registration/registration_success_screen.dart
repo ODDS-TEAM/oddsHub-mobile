@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/colors.dart';
-import 'package:oddshub/routes.dart';
 
 class RegistrationSuccessScreen extends StatelessWidget {
-  const RegistrationSuccessScreen({Key? key}) : super(key: key);
+  final Function() okButtonDidTap;
+
+  const RegistrationSuccessScreen({
+    Key? key,
+    required this.okButtonDidTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +34,7 @@ class RegistrationSuccessScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.subtitle1,
             ),
             ElevatedButton(
-              onPressed: () => Navigator.popUntil(
-                context,
-                ModalRoute.withName(Routes.home),
-              ),
+              onPressed: okButtonDidTap,
               child: const Text('OK'),
             )
           ],

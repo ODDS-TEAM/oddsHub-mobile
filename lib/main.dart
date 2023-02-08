@@ -61,8 +61,14 @@ class MyApp extends StatelessWidget {
       routes: {
         Routes.home: (context) => const HomePage(),
         Routes.registration: (context) => const RegistrationScreen(),
-        Routes.registrationSuccess: (context) =>
-            const RegistrationSuccessScreen(),
+        Routes.registrationSuccess: (context) => RegistrationSuccessScreen(
+              okButtonDidTap: () {
+                Navigator.popUntil(
+                  context,
+                  ModalRoute.withName(Routes.home),
+                );
+              },
+            ),
         Routes.sendEmail: (context) => const SendEmailScreen(),
       },
     );
