@@ -42,12 +42,8 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                 child: Container(
                   margin: const EdgeInsets.all(8),
                   child: ElevatedButton(
-                    onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const RegistrationSuccessScreen(),
-                      ),
-                    ),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, '/registration_success'),
                     child: Text(
                       'Save',
                       style: Theme.of(context)

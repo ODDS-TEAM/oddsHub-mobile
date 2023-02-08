@@ -29,7 +29,10 @@ class RegistrationSuccessScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.subtitle1,
             ),
             ElevatedButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => Navigator.popUntil(
+                context,
+                ModalRoute.withName('/home'),
+              ),
               child: const Text('OK'),
             )
           ],

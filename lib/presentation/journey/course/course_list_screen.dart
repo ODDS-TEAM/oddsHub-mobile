@@ -87,14 +87,7 @@ class _CourseListScreenState extends State<CourseListScreen> {
               ),
             ),
           ElevatedButton(
-            onPressed: (() => {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SendEmailPage(),
-                    ),
-                  )
-                }),
+            onPressed: (() => {Navigator.pushNamed(context, '/send_email')}),
             child: Text(
               'Go to send email',
               style: Theme.of(context).textTheme.button?.copyWith(
@@ -109,14 +102,7 @@ class _CourseListScreenState extends State<CourseListScreen> {
 
   Widget createRegistrationButton() {
     return ElevatedButton(
-      onPressed: (() => {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const RegistrationScreen(),
-              ),
-            )
-          }),
+      onPressed: (() => {Navigator.pushNamed(context, '/registration')}),
       style: ElevatedButton.styleFrom(
         minimumSize: const Size.fromHeight(50),
       ),
