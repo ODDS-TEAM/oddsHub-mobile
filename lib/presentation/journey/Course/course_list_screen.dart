@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:oddshub/Course/course_list_constants.dart';
 import 'package:oddshub/colors.dart';
+import 'package:oddshub/presentation/journey/Course/course_list_constants.dart';
 import 'package:oddshub/send_email.dart';
 
 class Course {
