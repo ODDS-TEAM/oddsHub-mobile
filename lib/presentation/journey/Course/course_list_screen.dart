@@ -14,9 +14,11 @@ class Course {
 }
 
 final List<Course> courses = [
-  Course(CourseListConstants.courseName
-  , CourseListConstants.productDiscoveryDescription
-  , CourseListConstants.instructorName, DateTime.now()),
+  Course(
+      CourseListConstants.courseName,
+      CourseListConstants.productDiscoveryDescription,
+      CourseListConstants.instructorName,
+      DateTime.now()),
 ];
 
 class CourseListScreen extends StatefulWidget {
@@ -76,6 +78,10 @@ class _CourseListScreenState extends State<CourseListScreen> {
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                    child: createRegistrationButton(),
+                  ),
                 ],
               ),
             ),
@@ -96,6 +102,28 @@ class _CourseListScreenState extends State<CourseListScreen> {
             ),
           )
         ],
+      ),
+    );
+  }
+
+  Widget createRegistrationButton() {
+    return ElevatedButton(
+      onPressed: (() => {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SendEmailPage(),
+              ),
+            )
+          }),
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size.fromHeight(50), 
+      ),
+      child: Text(
+        'Register',
+        style: Theme.of(context).textTheme.button?.copyWith(
+              color: AppColors.primaryBackground,
+            ),
       ),
     );
   }
