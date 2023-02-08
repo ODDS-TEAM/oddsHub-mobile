@@ -34,6 +34,7 @@ class RegistrationSuccessScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.subtitle1,
             ),
             ElevatedButton(
+              key: const Key('ok-button'),
               onPressed: okButtonDidTap,
               child: const Text('OK'),
             )
