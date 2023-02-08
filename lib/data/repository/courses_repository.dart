@@ -6,6 +6,6 @@ class CoursesRepository {
   CoursesRepository({required this.coursesRemoteDatasources});
 
   void sendEmailWelcome() {
-    return coursesRemoteDatasources.sendEmailWelcome();
+    coursesRemoteDatasources.sendEmailWelcome();
   }
 }
