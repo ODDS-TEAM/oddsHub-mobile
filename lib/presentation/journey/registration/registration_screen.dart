@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/colors.dart';
+import 'package:oddshub/presentation/journey/registration/registration_constants.dart';
 import 'package:oddshub/presentation/widget/common_text_field.dart';
 import 'package:oddshub/routes.dart';
 
@@ -17,11 +18,26 @@ class _RegistrationScreen extends State<RegistrationScreen> {
       body: Column(
         children: [
           const Text('Course Name:'),
-          commonTextField('Title'),
-          commonTextField('First name'),
-          commonTextField('Last name'),
-          commonTextField('Email'),
-          commonTextField('Phone Number'),
+          commonTextField(
+            RegistrationConstants.titleTextFieldKey,
+            'Title',
+          ),
+          commonTextField(
+            RegistrationConstants.firstNameTextFieldKey,
+            'First name',
+          ),
+          commonTextField(
+            RegistrationConstants.lastNameTextFieldKey,
+            'Last name',
+          ),
+          commonTextField(
+            RegistrationConstants.emailTextFieldKey,
+            'Email',
+          ),
+          commonTextField(
+            RegistrationConstants.phoneNumberTextFieldKey,
+            'Phone Number',
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -29,6 +45,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                 child: Container(
                   margin: const EdgeInsets.all(8),
                   child: ElevatedButton(
+                    key: RegistrationConstants.cancelButtonKey,
                     onPressed: () => {},
                     style: ElevatedButton.styleFrom(primary: Colors.white),
                     child: const Text(
@@ -42,6 +59,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                 child: Container(
                   margin: const EdgeInsets.all(8),
                   child: ElevatedButton(
+                    key: RegistrationConstants.saveButtonKey,
                     onPressed: () => Navigator.pushNamed(
                       context,
                       Routes.registrationSuccess,
