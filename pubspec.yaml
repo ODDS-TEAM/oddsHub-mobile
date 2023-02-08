@@ -26,7 +26,7 @@ dev_dependencies:
 
 flutter:
   assets: 
-  - assets/images
+  - assets/images/
   uses-material-design: true
   fonts:
     - family: NotoSans
