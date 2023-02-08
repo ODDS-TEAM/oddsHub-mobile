@@ -64,9 +64,13 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                         builder: (context) => const RegistrationSuccessScreen(),
                       ),
                     ),
-                    style: ElevatedButton.styleFrom(
-                        primary: AppColors.primaryBackground),
-                    child: const Text('Save'),
+                    child: Text(
+                      'Save',
+                      style: Theme.of(context)
+                          .textTheme
+                          .button
+                          ?.copyWith(color: AppColors.primaryBackground),
+                    ),
                   ),
                 ),
               ),
