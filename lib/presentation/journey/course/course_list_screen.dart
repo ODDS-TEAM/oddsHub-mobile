@@ -11,14 +11,19 @@ class Course {
   final DateTime startDate;
 
   Course(this.name, this.description, this.instructor, this.startDate);
+
+  get formattedDate {
+    return DateFormat.yMMMMd('en_US').format(startDate);
+  }
 }
 
 final List<Course> courses = [
   Course(
-      CourseListConstants.courseName,
-      CourseListConstants.productDiscoveryDescription,
-      CourseListConstants.instructorName,
-      DateTime.now()),
+    CourseListConstants.courseName,
+    CourseListConstants.productDiscoveryDescription,
+    CourseListConstants.instructorName,
+    DateTime.now(),
+  ),
 ];
 
 class CourseListScreen extends StatefulWidget {
@@ -74,7 +79,7 @@ class _CourseListScreenState extends State<CourseListScreen> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
                     child: Text(
-                      'Date: ${DateFormat.yMMMMd('en_US').format(course.startDate)}',
+                      'Date: ${course.formattedDate}',
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
                   ),

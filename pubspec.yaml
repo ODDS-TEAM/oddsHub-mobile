@@ -13,9 +13,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   bloc: ^8.1.0
   flutter_bloc: ^8.1.0
-  equatable: ^2.0.5
   intl: ^0.18.0
-  intl_phone_number_input: ^0.7.2
 
 dev_dependencies:
   flutter_test:
@@ -24,6 +22,7 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   mockito: ^5.3.2
   mocktail: ^0.3.0
+  lint: ^1.8.2
 
 flutter:
   assets: 
