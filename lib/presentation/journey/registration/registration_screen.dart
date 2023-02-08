@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/colors.dart';
 import 'package:oddshub/presentation/journey/registration/registration_constants.dart';
-import 'package:oddshub/presentation/journey/registration/registration_success/person.dart';
+import 'package:oddshub/data/models/person.dart';
 import 'package:oddshub/presentation/widget/common_text_field.dart';
 import 'package:oddshub/presentation/widget/layout_appbar.dart';
 import 'package:oddshub/routes.dart';

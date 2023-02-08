@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:oddshub/presentation/journey/registration/registration_success/person.dart';
+import 'package:oddshub/data/models/person.dart';
 import 'package:oddshub/presentation/journey/registration/registration_success/registration_success_constants.dart';
 import 'package:oddshub/presentation/journey/registration/registration_success/registration_success_screen.dart';
 

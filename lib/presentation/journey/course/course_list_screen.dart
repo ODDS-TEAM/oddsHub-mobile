@@ -1,30 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:oddshub/colors.dart';
+import 'package:oddshub/data/models/course.dart';
 import 'package:oddshub/presentation/journey/course/course_list_constants.dart';
 import 'package:oddshub/routes.dart';
-
-class Course {
-  final String name;
-  final String description;
-  final String instructor;
-  final DateTime startDate;
-
-  Course(this.name, this.description, this.instructor, this.startDate);
-
-  String get formattedDate {
-    return DateFormat.yMMMMd('en_US').format(startDate);
-  }
-}
-
-final List<Course> courses = [
-  Course(
-    CourseListConstants.courseName,
-    CourseListConstants.productDiscoveryDescription,
-    CourseListConstants.instructorName,
-    DateTime.now(),
-  ),
-];
 
 class CourseListScreen extends StatefulWidget {
   const CourseListScreen({Key? key}) : super(key: key);
@@ -34,6 +12,15 @@ class CourseListScreen extends StatefulWidget {
 }
 
 class _CourseListScreenState extends State<CourseListScreen> {
+  final List<Course> courses = [
+    Course(
+      CourseListConstants.courseName,
+      CourseListConstants.productDiscoveryDescription,
+      CourseListConstants.instructorName,
+      DateTime.now(),
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
