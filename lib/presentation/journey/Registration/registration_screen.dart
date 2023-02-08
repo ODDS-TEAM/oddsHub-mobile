@@ -10,42 +10,34 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreen extends State<RegistrationScreen> {
+  Widget _commonTextField(String text) {
+    return Container(
+      margin: const EdgeInsets.all(10),
+      height: 55,
+      decoration: BoxDecoration(
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: TextField(
+        decoration: InputDecoration(
+          border: const OutlineInputBorder(),
+          labelText: text,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
           const Text('Course Name:'),
-          const TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Title',
-            ),
-          ),
-          const TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Name',
-            ),
-          ),
-          const TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Lastname',
-            ),
-          ),
-          const TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Email',
-            ),
-          ),
-          const TextField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Phone Number',
-            ),
-          ),
+          _commonTextField('Title'),
+          _commonTextField('Name'),
+          _commonTextField('Lastname'),
+          _commonTextField('Email'),
+          _commonTextField('Phone Number'),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
