@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/colors.dart';
+import 'package:oddshub/data/datasources/remote/registration_remote_datasources.dart';
 import 'package:oddshub/presentation/journey/registration/registration_constants.dart';
 import 'package:oddshub/data/models/person.dart';
 import 'package:oddshub/presentation/widget/common_text_field.dart';
@@ -14,6 +15,13 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreen extends State<RegistrationScreen> {
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
+  // Future<void>? _futureRegister;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,22 +32,27 @@ class _RegistrationScreen extends State<RegistrationScreen> {
           commonTextField(
             RegistrationConstants.titleTextFieldKey,
             'Title',
+            _titleController,
           ),
           commonTextField(
             RegistrationConstants.firstNameTextFieldKey,
             'First name',
+            _firstNameController,
           ),
           commonTextField(
             RegistrationConstants.lastNameTextFieldKey,
             'Last name',
+            _lastNameController,
           ),
           commonTextField(
             RegistrationConstants.emailTextFieldKey,
             'Email',
+            _emailController,
           ),
           commonTextField(
             RegistrationConstants.phoneNumberTextFieldKey,
             'Phone Number',
+            _phoneNumberController,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -66,11 +79,24 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                   margin: const EdgeInsets.all(8),
                   child: ElevatedButton(
                     key: RegistrationConstants.saveButtonKey,
-                    onPressed: () => Navigator.pushNamed(
-                      context,
-                      Routes.registrationSuccess,
-                      arguments: Person('MR.', 'Wut', 'Vort'),
-                    ),
+                    onPressed: () => {
+                      setState(
+                        () => {
+                          RegistrationRemoteDatasources().submitRegister(
+                            _titleController.text,
+                            _firstNameController.text,
+                            _lastNameController.text,
+                            _emailController.text,
+                            _phoneNumberController.text,
+                          )
+                        },
+                      ),
+                      Navigator.pushNamed(
+                        context,
+                        Routes.registrationSuccess,
+                        arguments: Person('MR.', 'Wut', 'Vort'),
+                      )
+                    },
                     child: Text(
                       'Save',
                       style: Theme.of(context)

@@ -1,7 +1,4 @@
-import 'dart:io';
-
 class RegistrationRemoteDatasources {
-  final HttpClient httpClient;
-  RegistrationRemoteDatasources({required this.httpClient});
-
+  Future<void> submitRegister(String title, String firstName, String lastName,
+      String email, String phoneNumber) async {}
 }
