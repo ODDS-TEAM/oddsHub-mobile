@@ -20,10 +20,51 @@ void main() {
 
       await tester.pumpWidget(widget);
 
-      final backButton = find.byKey(const Key('ok-button'));
+      final backButton =
+          find.byKey(const Key('registration_success_ok_button'));
       await tester.tap(backButton);
 
       verify(mockOkButtonDidTap).called(1);
+    },
+  );
+
+  testWidgets(
+    'Should display payment instruction when user registration success',
+    (tester) async {
+      final mockOkButtonDidTap = MockFunction().callback;
+      final mockObserver = MockNavigatorObserver();
+
+      final widget = MaterialApp(
+        home: RegistrationSuccessScreen(okButtonDidTap: mockOkButtonDidTap),
+        navigatorObservers: [mockObserver],
+      );
+
+      await tester.pumpWidget(widget);
+
+      expect(
+        find.byKey(const Key('registration_success_title')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const Key('registration_success_sub_title')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const Key('registration_success_payment_method_title')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const Key('registration_success_payment_qr_image')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const Key('registration_success_payment_description')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const Key('registration_success_ok_button')),
+        findsOneWidget,
+      );
     },
   );
 }

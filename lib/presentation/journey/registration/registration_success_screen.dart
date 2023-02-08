@@ -17,24 +17,31 @@ class RegistrationSuccessScreen extends StatelessWidget {
         child: Column(
           children: [
             Text(
+              key: const Key('registration_success_title'),
               'registration complete',
               style: Theme.of(context).textTheme.subtitle1,
             ),
             Text(
+              key: const Key('registration_success_sub_title'),
               'Mr. Done Tester',
               style: Theme.of(context).textTheme.subtitle1,
             ),
             Text(
+              key: const Key('registration_success_payment_method_title'),
               'Payment method',
               style: Theme.of(context).textTheme.subtitle1,
             ),
-            const Image(image: AssetImage('assets/images/payment-qr.jpeg')),
+            const Image(
+              key: Key('registration_success_payment_qr_image'),
+              image: AssetImage('assets/images/payment-qr.jpeg'),
+            ),
             Text(
+              key: const Key('registration_success_payment_description'),
               'Please send the payment slip to this email jane@odds.team',
               style: Theme.of(context).textTheme.subtitle1,
             ),
             ElevatedButton(
-              key: const Key('ok-button'),
+              key: const Key('registration_success_ok_button'),
               onPressed: okButtonDidTap,
               child: const Text('OK'),
             )
