@@ -3,14 +3,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:oddshub/presentation/journey/Registration/registration_screen.dart';
 
-import 'mock.dart';
+import '../../../mock/mock_observer.dart';
+import '../../../mock/mock_route.dart';
 
 void main() {
   late MockNavigatorObserver mockNavigatorObserver;
 
-  setUpAll(() {
-    FakeRoute.setUp();
-  });
+  setUpAll(MockRoute.setUp);
 
   setUp(() => {mockNavigatorObserver = MockNavigatorObserver()});
 
