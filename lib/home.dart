@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oddshub/colors.dart';
 import 'package:oddshub/send_email.dart';
 
 class HomePage extends StatefulWidget {
@@ -65,7 +66,12 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 )
                               }),
-                          child: const Text('Go to send email'),
+                          child: Text(
+                            'Go to send email',
+                            style: Theme.of(context).textTheme.button?.copyWith(
+                                  color: AppColors.primaryBackground,
+                                ),
+                          ),
                         )
                       ],
                     ),

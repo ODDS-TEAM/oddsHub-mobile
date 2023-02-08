@@ -16,32 +16,32 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'NotoSans',
         textTheme: TextTheme(
-          displayLarge: TextStyle(
+          headline1: TextStyle(
             color: AppColors.primaryButton,
             fontSize: 24,
             fontWeight: FontWeight.bold,
           ),
-          displayMedium: TextStyle(
+          headline2: TextStyle(
             color: AppColors.primaryButton,
             fontSize: 24,
             fontWeight: FontWeight.normal,
           ),
-          titleMedium: TextStyle(
+          subtitle1: TextStyle(
             color: AppColors.primaryButton,
             fontSize: 18,
             fontWeight: FontWeight.normal,
           ),
-          bodyLarge: TextStyle(
+          bodyText1: TextStyle(
             color: AppColors.primaryButton,
             fontSize: 24,
             fontWeight: FontWeight.normal,
           ),
-          bodyMedium: TextStyle(
+          bodyText2: TextStyle(
             color: AppColors.primaryButton,
             fontSize: 24,
             fontWeight: FontWeight.normal,
           ),
-          labelLarge: TextStyle(
+          button: TextStyle(
             color: AppColors.secondaryButton,
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -51,7 +51,6 @@ class MyApp extends StatelessWidget {
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             primary: AppColors.primaryButton,
-            onPrimary: AppColors.primaryBackground,
           ),
         ),
       ),
