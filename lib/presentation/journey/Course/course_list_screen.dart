@@ -14,7 +14,9 @@ class Course {
 }
 
 final List<Course> courses = [
-  Course('Product Discovery', 'Just overview', 'Jane', DateTime.now()),
+  Course(CourseListConstants.courseName
+  , CourseListConstants.productDiscoveryDescription
+  , CourseListConstants.instructorName, DateTime.now()),
 ];
 
 class CourseListScreen extends StatefulWidget {
@@ -63,7 +65,7 @@ class _CourseListScreenState extends State<CourseListScreen> {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
                     child: Text(
-                      'Description: ${course.description}',
+                      course.description,
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
                   ),
