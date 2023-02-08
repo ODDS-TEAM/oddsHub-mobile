@@ -11,40 +11,49 @@ class _RegistrationScreen extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: const [
-        Text('Course Name:'),
-        TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: 'Title',
+      body: Column(
+        children: [
+          const Text('Course Name:'),
+          const TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Title',
+            ),
           ),
-        ),
-        TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: 'Name',
+          const TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Name',
+            ),
           ),
-        ),
-        TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: 'Lastname',
+          const TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Lastname',
+            ),
           ),
-        ),
-        TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: 'Email',
+          const TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Email',
+            ),
           ),
-        ),
-        TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: 'Phone Number',
+          const TextField(
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Phone Number',
+            ),
           ),
-        ),
-      ],
-    ));
+          ElevatedButton(
+            onPressed: () => {},
+            child: const Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () => {},
+            child: const Text('Save'),
+          ),
+        ],
+      ),
+    );
   }
 }
