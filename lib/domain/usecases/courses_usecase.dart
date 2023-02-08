@@ -1,4 +1,4 @@
-import 'package:oddshub/data/repository/courses_repository.dart';
+import 'package:oddshub/data/repositories/courses_repository.dart';
 
 class CoursesUsecase {
   final CoursesRepository coursesRepository;

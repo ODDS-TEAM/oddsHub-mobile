@@ -1,4 +1,4 @@
-import 'package:oddshub/data/repository/registration_repository.dart';
+import 'package:oddshub/data/repositories/registration_repository.dart';
 
 class RegistrationUsecase {
   final RegistrationRepository registrationRepository;
