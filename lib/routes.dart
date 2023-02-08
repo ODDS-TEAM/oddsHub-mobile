@@ -1,6 +1,6 @@
 class Routes {
-  static var home = '/home';
-  static var registration = '/registration';
-  static var registrationSuccess = '/registration_success';
-  static var sendEmail = '/send_email';
+  static String home = '/home';
+  static String registration = '/registration';
+  static String registrationSuccess = '/registration_success';
+  static String sendEmail = '/send_email';
 }

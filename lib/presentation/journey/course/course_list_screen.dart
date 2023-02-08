@@ -12,7 +12,7 @@ class Course {
 
   Course(this.name, this.description, this.instructor, this.startDate);
 
-  get formattedDate {
+  String get formattedDate {
     return DateFormat.yMMMMd('en_US').format(startDate);
   }
 }

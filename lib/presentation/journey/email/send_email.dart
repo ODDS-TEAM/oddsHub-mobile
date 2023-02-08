@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class SendEmailPage extends StatelessWidget {
   const SendEmailPage({super.key});
-  get sendButtonKey => const Key('send-email-button');
-  get backButtonKey => const Key('back-button');
+  Key get sendButtonKey => const Key('send-email-button');
+  Key get backButtonKey => const Key('back-button');
 
   @override
   Widget build(BuildContext context) {

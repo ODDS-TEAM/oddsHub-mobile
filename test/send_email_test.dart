@@ -12,9 +12,7 @@ void main() {
     () => {mockObserver = MockNavigatorObserver()},
   );
 
-  setUpAll(() {
-    FakeRoute.setUp();
-  });
+  setUpAll(FakeRoute.setUp);
   Widget prepareWidget() {
     final widget = MaterialApp(
       home: const SendEmailPage(),
