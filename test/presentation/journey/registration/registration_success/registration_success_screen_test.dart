@@ -33,6 +33,7 @@ void main() {
       await tester.pumpWidget(_prepareWidget());
 
       final backButton = find.byKey(RegistrationSuccessConstants.okButtonKey);
+      await tester.scrollUntilVisible(backButton, 20);
       await tester.tap(backButton);
 
       verify(mockOkButtonDidTap).called(1);
