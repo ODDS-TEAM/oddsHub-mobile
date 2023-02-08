@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:oddshub/colors.dart';
+import 'package:oddshub/presentation/journey/Registration/registration_success_screen.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({Key? key}) : super(key: key);
@@ -64,8 +66,14 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                 child: Container(
                   margin: const EdgeInsets.all(8),
                   child: ElevatedButton(
-                    onPressed: () => {},
-                    style: ElevatedButton.styleFrom(primary: Colors.blue),
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const RegistrationSuccessScreen(),
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                        primary: AppColors.primaryBackground),
                     child: const Text('Save'),
                   ),
                 ),
