@@ -12,7 +12,7 @@ class RegistrationSuccessScreen extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              'Registration complete',
+              'registration complete',
               style: Theme.of(context).textTheme.subtitle1,
             ),
             Text(

@@ -32,7 +32,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
     return Scaffold(
       body: Column(
         children: [
-          const Text('Course Name:'),
+          const Text('course Name:'),
           _commonTextField('Title'),
           _commonTextField('Name'),
           _commonTextField('Lastname'),
