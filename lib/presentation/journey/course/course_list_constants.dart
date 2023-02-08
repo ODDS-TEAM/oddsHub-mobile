@@ -5,7 +5,7 @@ class CourseListConstants {
 
   static Course clp = Course(
     'Certified LeSS Practitioner',
-    'assets/images/courses/clp.webp',
+    'assets/images/courses/clp.png',
     '''An in-depth course covering the LeSS principles, framework and rules, and guides. It provides essential information for adopting and improving LeSS to your product development group.''',
     'Bas Vodde',
     DateTime(2023, 5, 29),
