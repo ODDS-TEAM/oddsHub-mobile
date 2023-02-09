@@ -7,6 +7,9 @@ import 'package:oddshub/data/datasources/remote/my_client.dart';
 import 'package:oddshub/presentation/journey/home.dart';
 import 'package:oddshub/presentation/journey/registration/registration_success/registration_success_screen.dart';
 import 'package:oddshub/presentation/journey/registration/registration_screen.dart';
+import 'package:oddshub/presentation/journey/send_email/send_email_bloc.dart';
+import 'package:oddshub/presentation/journey/send_email/send_email_fail_screen.dart';
+import 'package:oddshub/presentation/journey/send_email/send_email_success_screen.dart';
 import 'package:oddshub/routes.dart';
 import 'package:oddshub/presentation/journey/send_email/send_email_screen.dart';
 
@@ -54,7 +57,14 @@ class MyApp extends StatelessWidget {
                 );
               },
             ),
-        Routes.sendEmail: (context) => SendEmailScreen(),
+        Routes.sendEmail: (context) => SendEmailScreen(
+              sendEmailBloc: SendEmailBloc(),
+              navSuccess: () =>
+                  Navigator.pushNamed(context, Routes.sendEmailSuccess),
+              navFail: () => Navigator.pushNamed(context, Routes.sendEmailFail),
+            ),
+        Routes.sendEmailSuccess: (context) => const SendMailSuccessScreen(),
+        Routes.sendEmailFail: (context) => const SendMailFailScreen(),
       },
     );
   }

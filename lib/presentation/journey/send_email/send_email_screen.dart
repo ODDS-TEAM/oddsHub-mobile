@@ -3,19 +3,30 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oddshub/presentation/journey/send_email/send_email_bloc.dart';
 
 class SendEmailScreen extends StatelessWidget {
-  final SendEmailBloc sendEmailBloc = SendEmailBloc();
+  final SendEmailBloc sendEmailBloc;
+  final Function() navSuccess;
+  final Function() navFail;
 
-  SendEmailScreen({Key? key}) : super(key: key);
+  const SendEmailScreen({
+    Key? key,
+    required this.sendEmailBloc,
+    required this.navSuccess,
+    required this.navFail,
+  }) : super(key: key);
   Key get sendButtonKey => const Key('send_email_button');
   Key get backButtonKey => const Key('back_button');
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SendEmailBloc(),
+      create: (context) => sendEmailBloc,
       child: BlocListener<SendEmailBloc, SendEmailState>(
         listener: (context, state) {
-          if (state is SendEmailSuccessState) {}
+          if (state is SendEmailSuccessState) {
+            navSuccess();
+          } else {
+            navFail();
+          }
         },
         child: SafeArea(
           child: Center(
