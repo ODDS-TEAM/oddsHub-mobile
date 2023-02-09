@@ -50,6 +50,6 @@ class RegistrationScreenActivity {
     final saveButton = find.byKey(RegistrationConstants.saveButtonKey);
     expect(saveButton, findsOneWidget);
     await tester.tap(saveButton);
-    await tester.pumpAndSettle();
+    await tester.pumpAndSettle(const Duration(seconds: 5));
   }
 }

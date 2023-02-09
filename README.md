@@ -42,3 +42,14 @@ Run
 flutter config --no-enable-web
 flutter config --no-enable-macos-desktop --no-enable-windows-desktop --no-enable-linux-desktop
 ```
+
+# RUN BUILD MODE
+- Trainee mode (Can register course)
+```
+flutter run --dart-define=IS_TRAINER=false or flutter run
+```
+
+- Trainer mode (Can send email)
+```
+flutter run --dart-define=IS_TRAINER=true
+```

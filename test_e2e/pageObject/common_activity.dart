@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
+import 'package:oddshub/config.dart';
 import 'package:oddshub/main.dart';
 
 class CommonActivity {
@@ -14,7 +15,11 @@ class CommonActivity {
   Future<void> openApplication(
     String title,
   ) async {
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(
+      MyApp(
+        appConfigs: AppConfigs(overrideIsTrainer: false),
+      ),
+    );
     await tester.pump(const Duration(seconds: 1));
   }
 }

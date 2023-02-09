@@ -11,6 +11,7 @@ class RegistrationConstants {
   static const Key cancelDialogKey = Key('cancel_dialog');
   static const Key discardButtonKey = Key('discard_button');
   static const Key continueButtonKey = Key('continue_button');
+  static const Key snackBarErrorMessageKey = Key('snackbar_error_message');
   static const String dialogTitle = 'Are you sure you want to discard?';
   static const String dialogContent =
       'All progress in this session will be lost.';
@@ -18,4 +19,5 @@ class RegistrationConstants {
   static const String discardButton = 'Discard';
   static const String registrationFailedMessage =
       'Registration failed pleasee try again ka';
+  static const String registrationFulledMessage = 'Course is full';
 }

@@ -3,6 +3,7 @@ import 'package:oddshub/data/models/course.dart';
 
 class CourseListConstants {
   static const Key registerButtonKey = Key('register_button_key');
+  static const Key sendEmailButtonKey = Key('go_to_send_email_button_key');
   static const String oddsLogoImage = 'assets/images/logo.png';
 
   static Course clp = Course(

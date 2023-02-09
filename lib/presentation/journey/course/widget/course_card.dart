@@ -3,12 +3,15 @@ import 'package:oddshub/data/models/course.dart';
 import 'package:oddshub/routes.dart';
 import 'package:oddshub/styles/colors.dart';
 
+import '../../../../config.dart';
 import '../course_list_constants.dart';
 
 class CourseCard extends StatelessWidget {
   final Course course;
+  final AppConfigs appConfigs;
 
-  const CourseCard({Key? key, required this.course}) : super(key: key);
+  const CourseCard({Key? key, required this.course, required this.appConfigs})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +63,9 @@ class CourseCard extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 10, 16, 20),
-            child: createRegistrationButton(context),
+            child: appConfigs.isTrainer
+                ? createSendmailButton(context)
+                : createRegistrationButton(context),
           ),
         ],
       ),
@@ -76,6 +81,22 @@ class CourseCard extends StatelessWidget {
       ),
       child: Text(
         'Register',
+        style: Theme.of(context).textTheme.button?.copyWith(
+              color: AppColors.primaryBackground,
+            ),
+      ),
+    );
+  }
+
+  Widget createSendmailButton(BuildContext context) {
+    return ElevatedButton(
+      key: CourseListConstants.sendEmailButtonKey,
+      onPressed: () => Navigator.pushNamed(context, Routes.sendEmail),
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size.fromHeight(50),
+      ),
+      child: Text(
+        'Go to send email',
         style: Theme.of(context).textTheme.button?.copyWith(
               color: AppColors.primaryBackground,
             ),
