@@ -32,7 +32,7 @@ samples, guidance on mobile development, and a full API reference.
     - your device > Settings > General > Device Management > [your new certificate] > Trust 
 
 # WORKING AGREEMENT
-- Run `make lint` and `make app-test` before push
+- Run `make lint` and `make app-test` or Run `make all` before push
 
 # DISABLE WEB DESKTOP
 - Project won't generate new file for desktop 

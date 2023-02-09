@@ -19,3 +19,5 @@ app-test:
 	EXIT_CODE=0 ; \
 	$(FLUTTER) test --no-test-assets || EXIT_CODE=1 ; \
 	exit $$EXIT_CODE
+
+all: lint app-test
