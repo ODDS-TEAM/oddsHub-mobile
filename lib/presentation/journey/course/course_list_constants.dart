@@ -1,6 +1,8 @@
+import 'package:flutter/widgets.dart';
 import 'package:oddshub/data/models/course.dart';
 
 class CourseListConstants {
+  static const Key registerButtonKey = Key('register_button_key');
   static const String oddsLogoImage = 'assets/images/logo.png';
 
   static Course clp = Course(

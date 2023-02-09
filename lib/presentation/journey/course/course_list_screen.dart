@@ -89,6 +89,7 @@ class _CourseListScreenState extends State<CourseListScreen> {
 
   Widget createRegistrationButton() {
     return ElevatedButton(
+      key: CourseListConstants.registerButtonKey,
       onPressed: () => Navigator.pushNamed(context, Routes.registration),
       style: ElevatedButton.styleFrom(
         minimumSize: const Size.fromHeight(50),
