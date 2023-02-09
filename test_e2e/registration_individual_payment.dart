@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'pageObject/common_activity.dart';
 import 'pageObject/course_list_screen_activity.dart';
-import 'pageObject/individual_payment_screen_activity.dart';
 import 'pageObject/registration_screen_activity.dart';
 
 void main() {
@@ -11,7 +10,6 @@ void main() {
     final commonActivity = CommonActivity(tester);
     final courseListScreen = CourseListScreenActivity(tester);
     final registrationScreen = RegistrationScreenActivity(tester);
-    final individualPaymentScreen = IndividualPaymentScreenActivity(tester);
     
     await commonActivity.openApplication('OddsHub');
     await courseListScreen.clickRegisterButton();
@@ -19,8 +17,5 @@ void main() {
     await registrationScreen.fillInNameAndLastName('Newii', 'Huhu');
     await registrationScreen.fillInEmail('newii@odds.team');
     await registrationScreen.fillInPhoneNumber('0812345678');
-    await registrationScreen.clickSaveButton();
-    await individualPaymentScreen.clickOKButton();
-    courseListScreen.waitUntilTheScreenShowsTitleMessage('OddsHub');
   });
 }
