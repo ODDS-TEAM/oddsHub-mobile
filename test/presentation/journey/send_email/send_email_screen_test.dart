@@ -40,6 +40,5 @@ void main() {
     verify(() => mockObserver.didPush(any(), any()));
 
     expect(backButton, findsOneWidget);
-    expect(backButton, findsWidgets);
   });
 }
