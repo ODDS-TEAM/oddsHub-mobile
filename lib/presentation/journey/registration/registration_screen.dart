@@ -8,7 +8,9 @@ import 'package:oddshub/presentation/widget/common_text_field.dart';
 import 'package:oddshub/routes.dart';
 
 class RegistrationScreen extends StatefulWidget {
-  const RegistrationScreen({Key? key}) : super(key: key);
+  final Function onTapDiscardButton;
+  const RegistrationScreen({Key? key, required this.onTapDiscardButton})
+      : super(key: key);
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreen();
@@ -158,18 +160,20 @@ class _RegistrationScreen extends State<RegistrationScreen> {
     return showDialog<String>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
+        key: RegistrationConstants.cancelDialogKey,
         title: const Text(RegistrationConstants.dialogTitle),
         content: const Text(RegistrationConstants.dialogContent),
         actions: <Widget>[
           TextButton(
+            key: RegistrationConstants.continueButtonKey,
             onPressed: () => Navigator.pop(context),
             child: const Text(RegistrationConstants.continueButton),
           ),
           TextButton(
-            onPressed: () => Navigator.popUntil(
-              context,
-              ModalRoute.withName(Routes.home),
-            ),
+            key: RegistrationConstants.discardButtonKey,
+            onPressed: () {
+              widget.onTapDiscardButton.call();
+            },
             child: const Text(RegistrationConstants.discardButton),
           ),
         ],

@@ -9,6 +9,8 @@ class RegistrationConstants {
   static const Key saveButtonKey = Key('save_button');
   static const Key cancelButtonKey = Key('cancel_button');
   static const Key cancelDialogKey = Key('cancel_dialog');
+  static const Key discardButtonKey = Key('discard_button');
+  static const Key continueButtonKey = Key('continue_button');
   static const String dialogTitle = 'Are you sure you want to discard?';
   static const String dialogContent =
       'All progress in this session will be lost.';

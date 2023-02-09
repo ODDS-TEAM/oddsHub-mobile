@@ -14,7 +14,6 @@ void main() {
   runApp(const MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -65,7 +64,10 @@ class MyApp extends StatelessWidget {
       initialRoute: Routes.home,
       routes: {
         Routes.home: (context) => const HomePage(),
-        Routes.registration: (context) => const RegistrationScreen(),
+        Routes.registration: (context) =>
+            RegistrationScreen(onTapDiscardButton: () {
+              Navigator.pushNamed(context, Routes.home);
+            },),
         Routes.registrationSuccess: (context) => RegistrationSuccessScreen(
               okButtonDidTap: () {
                 Navigator.popUntil(
