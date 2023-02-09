@@ -8,8 +8,10 @@ import '../course_list_constants.dart';
 
 class CourseCard extends StatelessWidget {
   final Course course;
+  final AppConfigs appConfigs;
 
-  const CourseCard({Key? key, required this.course}) : super(key: key);
+  const CourseCard({Key? key, required this.course, required this.appConfigs})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +63,7 @@ class CourseCard extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 10, 16, 20),
-            child: isTrainer
+            child: appConfigs.isTrainer
                 ? createSendmailButton(context)
                 : createRegistrationButton(context),
           ),
