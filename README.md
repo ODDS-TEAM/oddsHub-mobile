@@ -31,3 +31,6 @@ samples, guidance on mobile development, and a full API reference.
 - If we cannot find Developer Mode Open Xcode
     - select your device > run project 
     - your device > Settings > General > Device Management > [your new certificate] > Trust 
+  
+# WORKING AGREEMENT
+- Run `make lint` and `make app-test` before push
