@@ -33,7 +33,7 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
   );
   static TextStyle headlineSuccess = TextStyle(
-    color: AppColors.primaryButton,
+    color: AppColors.green,
     fontSize: 24,
     fontWeight: FontWeight.bold,
   );
