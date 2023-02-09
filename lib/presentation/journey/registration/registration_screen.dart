@@ -104,7 +104,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                   Expanded(
                     child: ElevatedButton(
                       key: RegistrationConstants.cancelButtonKey,
-                      onPressed: () => _showModalCancel,
+                      onPressed: _showModalCancel,
                       style: ElevatedButton.styleFrom(primary: Colors.white),
                       child: const Text(
                         'Cancel',
