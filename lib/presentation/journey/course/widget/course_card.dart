@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/data/models/course.dart';
+import 'package:oddshub/presentation/journey/course/course_list_constants.dart';
 import 'package:oddshub/routes.dart';
 import 'package:oddshub/styles/colors.dart';
 
 import '../../../../config.dart';
-import '../course_list_constants.dart';
 
 class CourseCard extends StatelessWidget {
   final Course course;
