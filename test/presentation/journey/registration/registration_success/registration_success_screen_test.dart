@@ -28,13 +28,13 @@ void main() {
   }
 
   testWidgets(
-    'Should navigate back When user tap the ok button',
+    'ok button can be pressed so that the user can go back to home screen',
     (WidgetTester tester) async {
       await tester.pumpWidget(_prepareWidget());
 
-      final backButton = find.byKey(RegistrationSuccessConstants.okButtonKey);
-      await tester.scrollUntilVisible(backButton, 20);
-      await tester.tap(backButton);
+      final okButton = find.byKey(RegistrationSuccessConstants.okButtonKey);
+      await tester.scrollUntilVisible(okButton, 20);
+      await tester.tap(okButton);
 
       verify(mockOkButtonDidTap).called(1);
     },
