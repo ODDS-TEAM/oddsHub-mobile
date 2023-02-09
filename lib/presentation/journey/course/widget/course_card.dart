@@ -60,7 +60,9 @@ class CourseCard extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 10, 16, 20),
-            child: createRegistrationButton(context),
+            child: 1 == 2
+                ? createRegistrationButton(context)
+                : createSendmailButton(context),
           ),
         ],
       ),
@@ -76,6 +78,22 @@ class CourseCard extends StatelessWidget {
       ),
       child: Text(
         'Register',
+        style: Theme.of(context).textTheme.button?.copyWith(
+              color: AppColors.primaryBackground,
+            ),
+      ),
+    );
+  }
+
+  Widget createSendmailButton(BuildContext context) {
+    return ElevatedButton(
+      key: CourseListConstants.sendMailButtonKey,
+      onPressed: () => Navigator.pushNamed(context, Routes.sendEmail),
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size.fromHeight(50),
+      ),
+      child: Text(
+        'Go to send email',
         style: Theme.of(context).textTheme.button?.copyWith(
               color: AppColors.primaryBackground,
             ),
