@@ -16,4 +16,6 @@ class RegistrationConstants {
       'All progress in this session will be lost.';
   static const String continueButton = 'Continue register';
   static const String discardButton = 'Discard';
+  static const String registrationFailedMessage =
+      'Registration failed pleasee try again ka';
 }

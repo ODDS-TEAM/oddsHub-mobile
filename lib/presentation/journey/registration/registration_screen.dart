@@ -123,20 +123,42 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                       onPressed: () => {
                         setState(
                           () => {
-                            RegistrationRemoteDatasources().submitRegister(
-                              _titleController.text,
-                              _firstNameController.text,
-                              _lastNameController.text,
-                              _emailController.text,
-                              _phoneNumberController.text,
-                            )
+                            RegistrationRemoteDatasources()
+                                .submitRegister(
+                                  _titleController.text,
+                                  _firstNameController.text,
+                                  _lastNameController.text,
+                                  _emailController.text,
+                                  _phoneNumberController.text,
+                                )
+                                .then(
+                                  (response) => {
+                                    if (response.statusCode == 204)
+                                      {
+                                        Navigator.pushNamed(
+                                          context,
+                                          Routes.registrationSuccess,
+                                          arguments:
+                                              Person('MR.', 'Wut', 'Vort'),
+                                        )
+                                      }
+                                    else
+                                      {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          const SnackBar(
+                                            backgroundColor: Colors.red,
+                                            content: Text(
+                                              RegistrationConstants
+                                                  .registrationFailedMessage,
+                                            ),
+                                          ),
+                                        )
+                                      }
+                                  },
+                                )
                           },
                         ),
-                        Navigator.pushNamed(
-                          context,
-                          Routes.registrationSuccess,
-                          arguments: Person('MR.', 'Wut', 'Vort'),
-                        )
                       },
                       child: Text(
                         'Save',
