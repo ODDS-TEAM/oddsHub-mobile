@@ -137,7 +137,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                                       {
                                         Navigator.pushNamed(
                                           context,
-                                          Routes.registrationSuccess,
+                                          Routes.individualPayment,
                                           arguments:
                                               Person('MR.', 'Wut', 'Vort'),
                                         )

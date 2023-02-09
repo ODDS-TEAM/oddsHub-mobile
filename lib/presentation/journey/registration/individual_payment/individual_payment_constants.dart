@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class RegistrationSuccessConstants {
+class IndividualPaymentConstants {
   static Key titleKey = const Key(
     'registration_success_title',
   );

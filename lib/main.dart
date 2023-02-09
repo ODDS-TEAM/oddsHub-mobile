@@ -5,7 +5,7 @@ import 'package:oddshub/styles/app_textstyles.dart';
 import 'package:oddshub/styles/colors.dart';
 import 'package:oddshub/data/datasources/remote/my_client.dart';
 import 'package:oddshub/presentation/journey/home.dart';
-import 'package:oddshub/presentation/journey/registration/registration_success/registration_success_screen.dart';
+import 'package:oddshub/presentation/journey/registration/individual_payment/individual_payment_screen.dart';
 import 'package:oddshub/presentation/journey/registration/registration_screen.dart';
 import 'package:oddshub/presentation/journey/send_email/send_email_bloc.dart';
 import 'package:oddshub/presentation/journey/send_email/send_email_fail_screen.dart';
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
                 Navigator.pushNamed(context, Routes.home);
               },
             ),
-        Routes.registrationSuccess: (context) => RegistrationSuccessScreen(
+        Routes.individualPayment: (context) => IndividualPaymentScreen(
               okButtonDidTap: () {
                 Navigator.popUntil(
                   context,

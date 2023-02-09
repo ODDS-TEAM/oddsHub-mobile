@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:oddshub/styles/app_textstyles.dart';
 import 'package:oddshub/styles/colors.dart';
 import 'package:oddshub/data/models/person.dart';
-import 'package:oddshub/presentation/journey/registration/registration_success/registration_success_constants.dart';
+import 'package:oddshub/presentation/journey/registration/individual_payment/individual_payment_constants.dart';
 
-class RegistrationSuccessScreen extends StatelessWidget {
+class IndividualPaymentScreen extends StatelessWidget {
   final Function() okButtonDidTap;
 
-  const RegistrationSuccessScreen({
+  const IndividualPaymentScreen({
     Key? key,
     required this.okButtonDidTap,
   }) : super(key: key);
@@ -29,7 +29,7 @@ class RegistrationSuccessScreen extends StatelessWidget {
                   height: 30,
                 ),
                 Text(
-                  key: RegistrationSuccessConstants.titleKey,
+                  key: IndividualPaymentConstants.titleKey,
                   'Registration Complete',
                   style: AppTextStyles.headlineSuccess,
                 ),
@@ -37,7 +37,7 @@ class RegistrationSuccessScreen extends StatelessWidget {
                   height: 5,
                 ),
                 Text(
-                  key: RegistrationSuccessConstants.subtitleKey,
+                  key: IndividualPaymentConstants.subtitleKey,
                   name,
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
@@ -45,7 +45,7 @@ class RegistrationSuccessScreen extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  key: RegistrationSuccessConstants.priceKey,
+                  key: IndividualPaymentConstants.priceKey,
                   'Price: ฿40,000',
                   style: Theme.of(context).textTheme.headline1,
                 ),
@@ -53,7 +53,7 @@ class RegistrationSuccessScreen extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  key: RegistrationSuccessConstants.paymentMethodTitleKey,
+                  key: IndividualPaymentConstants.paymentMethodTitleKey,
                   'Payment method',
                   style: Theme.of(context).textTheme.subtitle2,
                 ),
@@ -61,16 +61,16 @@ class RegistrationSuccessScreen extends StatelessWidget {
                   height: 5,
                 ),
                 Image(
-                  key: RegistrationSuccessConstants.paymentQrImageKey,
+                  key: IndividualPaymentConstants.paymentQrImageKey,
                   image: AssetImage(
-                    RegistrationSuccessConstants.paymentQrImage,
+                    IndividualPaymentConstants.paymentQrImage,
                   ),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
                 Text(
-                  key: RegistrationSuccessConstants.paymentDescriptionKey,
+                  key: IndividualPaymentConstants.paymentDescriptionKey,
                   'Please send the payment slip to this email jane@odds.team',
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
@@ -78,7 +78,7 @@ class RegistrationSuccessScreen extends StatelessWidget {
                   height: 10,
                 ),
                 ElevatedButton(
-                  key: RegistrationSuccessConstants.okButtonKey,
+                  key: IndividualPaymentConstants.okButtonKey,
                   onPressed: okButtonDidTap,
                   child: const Text('OK'),
                 )

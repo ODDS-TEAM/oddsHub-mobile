@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:oddshub/data/models/person.dart';
-import 'package:oddshub/presentation/journey/registration/registration_success/registration_success_constants.dart';
-import 'package:oddshub/presentation/journey/registration/registration_success/registration_success_screen.dart';
+import 'package:oddshub/presentation/journey/registration/individual_payment/individual_payment_constants.dart';
+import 'package:oddshub/presentation/journey/registration/individual_payment/individual_payment_screen.dart';
 
 import '../../../../mock/mock_function.dart';
 
@@ -18,7 +18,7 @@ void main() {
     return MaterialApp(
       onGenerateRoute: (_) => MaterialPageRoute(
         builder: (context) {
-          return RegistrationSuccessScreen(
+          return IndividualPaymentScreen(
             okButtonDidTap: mockOkButtonDidTap,
           );
         },
@@ -32,7 +32,7 @@ void main() {
     (WidgetTester tester) async {
       await tester.pumpWidget(_prepareWidget());
 
-      final okButton = find.byKey(RegistrationSuccessConstants.okButtonKey);
+      final okButton = find.byKey(IndividualPaymentConstants.okButtonKey);
       await tester.scrollUntilVisible(okButton, 20);
       await tester.tap(okButton);
 
@@ -41,32 +41,32 @@ void main() {
   );
 
   testWidgets(
-    'Should display payment instruction when user registration success',
+    'Should display individual payment information',
     (tester) async {
       await tester.pumpWidget(_prepareWidget());
 
       expect(
-        find.byKey(RegistrationSuccessConstants.titleKey),
+        find.byKey(IndividualPaymentConstants.titleKey),
         findsOneWidget,
       );
       expect(
-        find.byKey(RegistrationSuccessConstants.subtitleKey),
+        find.byKey(IndividualPaymentConstants.subtitleKey),
         findsOneWidget,
       );
       expect(
-        find.byKey(RegistrationSuccessConstants.paymentMethodTitleKey),
+        find.byKey(IndividualPaymentConstants.paymentMethodTitleKey),
         findsOneWidget,
       );
       expect(
-        find.byKey(RegistrationSuccessConstants.paymentQrImageKey),
+        find.byKey(IndividualPaymentConstants.paymentQrImageKey),
         findsOneWidget,
       );
       expect(
-        find.byKey(RegistrationSuccessConstants.paymentDescriptionKey),
+        find.byKey(IndividualPaymentConstants.paymentDescriptionKey),
         findsOneWidget,
       );
       expect(
-        find.byKey(RegistrationSuccessConstants.okButtonKey),
+        find.byKey(IndividualPaymentConstants.okButtonKey),
         findsOneWidget,
       );
     },

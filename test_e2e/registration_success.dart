@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:oddshub/presentation/journey/course/course_list_constants.dart';
 import 'package:oddshub/presentation/journey/registration/registration_constants.dart';
-import 'package:oddshub/presentation/journey/registration/registration_success/registration_success_constants.dart';
+import 'package:oddshub/presentation/journey/registration/individual_payment/individual_payment_constants.dart';
 import 'pageObject/kw_registration.dart';
 
 void main() {
@@ -41,7 +41,7 @@ void main() {
     expect(saveButton, findsOneWidget);
     await tester.tap(saveButton);
     await tester.pumpAndSettle();
-    final okButton = find.byKey(RegistrationSuccessConstants.okButtonKey);
+    final okButton = find.byKey(IndividualPaymentConstants.okButtonKey);
     expect(okButton, findsOneWidget);
     await tester.tap(okButton);
     await tester.pumpAndSettle();
