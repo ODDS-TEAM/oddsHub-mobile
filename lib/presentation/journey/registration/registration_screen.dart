@@ -24,6 +24,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: appBar(),
       body: Column(
         children: [
@@ -61,7 +62,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                   margin: const EdgeInsets.all(8),
                   child: ElevatedButton(
                     key: RegistrationConstants.cancelButtonKey,
-                    onPressed: _showModal,
+                    onPressed: _showModalCancel,
                     style: ElevatedButton.styleFrom(primary: Colors.white),
                     child: const Text(
                       'Cancel',
@@ -110,7 +111,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
     );
   }
 
-  Future<void> _showModal() {
+  Future<void> _showModalCancel() {
     return showDialog<String>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
@@ -118,11 +119,11 @@ class _RegistrationScreen extends State<RegistrationScreen> {
         content: const Text(RegistrationConstants.dialogContent),
         actions: <Widget>[
           TextButton(
-            onPressed: () => Navigator.pop(context, 'Cancel'),
-            child: const Text(RegistrationConstants.notNowButton),
+            onPressed: () => Navigator.pop(context),
+            child: const Text(RegistrationConstants.continueButton),
           ),
           TextButton(
-            onPressed: () => Navigator.pop(context, 'OK'),
+            onPressed: () => Navigator.pushNamed(context, Routes.home),
             child: const Text(RegistrationConstants.discardButton),
           ),
         ],
