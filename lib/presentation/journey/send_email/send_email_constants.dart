@@ -7,4 +7,7 @@ class SendEmailConstants {
   static Key backButtonKey = const Key(
     'back_button',
   );
+  static Key goToHomeButtonKey = const Key(
+    'go_to_home_button',
+  );
 }

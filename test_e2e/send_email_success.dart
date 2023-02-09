@@ -18,5 +18,9 @@ void main(List<String> args) {
     await tester.pumpAndSettle();
     final successText = find.text('Send email success');
     expect(successText, findsOneWidget);
+    await tester.pumpAndSettle();
+    final goToHomeButton = find.byKey(SendEmailConstants.goToHomeButtonKey);
+    await tester.tap(goToHomeButton);
+    await tester.pumpAndSettle();
   });
 }

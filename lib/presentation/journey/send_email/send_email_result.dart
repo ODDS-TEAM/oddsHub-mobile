@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:oddshub/presentation/journey/send_email/send_email_constants.dart';
+import 'package:oddshub/routes.dart';
 import 'package:oddshub/styles/colors.dart';
 
 class SendEmailResult extends StatelessWidget {
@@ -30,9 +32,10 @@ class SendEmailResult extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline1,
               ),
               ElevatedButton(
-                onPressed: () => Navigator.pop(context),
+                key: SendEmailConstants.goToHomeButtonKey,
+                onPressed: () => Navigator.pushNamed(context, Routes.home),
                 child: Text(
-                  'Back',
+                  'Go to Home',
                   style: Theme.of(context).textTheme.button?.copyWith(
                         color: AppColors.primaryBackground,
                       ),
