@@ -10,6 +10,9 @@ class RegistrationSuccessConstants {
   static Key paymentMethodTitleKey = const Key(
     'registration_success_payment_method_title',
   );
+  static Key priceKey = const Key(
+    'registration_success_payment_price',
+  );
   static Key paymentQrImageKey = const Key(
     'registration_success_payment_qr_image',
   );

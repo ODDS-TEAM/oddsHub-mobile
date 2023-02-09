@@ -85,4 +85,18 @@ void main() {
       );
     },
   );
+
+  testWidgets(
+    'Should display course amount',
+    (tester) async {
+      await tester.pumpWidget(
+        _prepareWidget(person: Person('MR.', 'Pop', 'Kung')),
+      );
+
+      expect(
+        find.text('Price: ฿40,000'),
+        findsOneWidget,
+      );
+    },
+  );
 }

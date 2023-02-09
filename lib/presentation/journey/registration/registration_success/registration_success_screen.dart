@@ -30,7 +30,11 @@ class RegistrationSuccessScreen extends StatelessWidget {
                 Text(
                   key: RegistrationSuccessConstants.titleKey,
                   'Registration Complete',
-                  style: Theme.of(context).textTheme.headline1,
+                  style: TextStyle(
+                    color: AppColors.green,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(
                   height: 5,
@@ -41,7 +45,15 @@ class RegistrationSuccessScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
                 const SizedBox(
-                  height: 5,
+                  height: 20,
+                ),
+                Text(
+                  key: RegistrationSuccessConstants.priceKey,
+                  'Price: ฿40,000',
+                  style: Theme.of(context).textTheme.headline1,
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 Text(
                   key: RegistrationSuccessConstants.paymentMethodTitleKey,

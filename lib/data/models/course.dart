@@ -5,6 +5,7 @@ class Course {
   final String image;
   final String description;
   final String instructor;
+  final double price;
   final DateTime startDate;
 
   Course(
@@ -12,6 +13,7 @@ class Course {
     this.image,
     this.description,
     this.instructor,
+    this.price,
     this.startDate,
   );
 

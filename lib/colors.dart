@@ -8,6 +8,8 @@ class AppColors {
   static Color primaryBackground = const Color(0xffffffff);
   static Color secondaryBackground = const Color(0xffe3e3e3);
 
+  static Color green = const Color(0xff268b08);
+
   static MaterialColor primaryMaterialColor = const MaterialColor(
     0xff393944,
     <int, Color>{
