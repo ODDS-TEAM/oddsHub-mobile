@@ -7,5 +7,5 @@ class RegistrationConstants {
   static const Key emailTextFieldKey = Key('email');
   static const Key phoneNumberTextFieldKey = Key('phone_number');
   static const Key saveButtonKey = Key('save_button');
-  static const Key cancelButtonKey = Key('cancel_button');
+  static const Key cancelButtonKey = Key('cancel_button'); 
 }
