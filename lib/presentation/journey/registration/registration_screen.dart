@@ -20,7 +20,6 @@ class _RegistrationScreen extends State<RegistrationScreen> {
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
-  // Future<void>? _futureRegister;
 
   @override
   Widget build(BuildContext context) {
