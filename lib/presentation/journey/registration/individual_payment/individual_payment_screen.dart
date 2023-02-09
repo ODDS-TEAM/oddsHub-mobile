@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:oddshub/data/models/individual_payment_information.dart';
 import 'package:oddshub/styles/app_textstyles.dart';
 import 'package:oddshub/styles/colors.dart';
-import 'package:oddshub/data/models/person.dart';
 import 'package:oddshub/presentation/journey/registration/individual_payment/individual_payment_constants.dart';
 
 class IndividualPaymentScreen extends StatelessWidget {
@@ -14,8 +14,10 @@ class IndividualPaymentScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final person = ModalRoute.of(context)?.settings.arguments as Person?;
-    final name = person?.fullName ?? '';
+    final info = ModalRoute.of(context)?.settings.arguments
+        as IndividualPaymentInformation?;
+    final name = info?.customer.fullName ?? '';
+    final price = info?.course.formattedPrice ?? '';
     return Scaffold(
       backgroundColor: AppColors.primaryBackground,
       body: SafeArea(
@@ -46,7 +48,7 @@ class IndividualPaymentScreen extends StatelessWidget {
                 ),
                 Text(
                   key: IndividualPaymentConstants.priceKey,
-                  'Price: ฿40,000',
+                  'Price: $price',
                   style: Theme.of(context).textTheme.headline1,
                 ),
                 const SizedBox(

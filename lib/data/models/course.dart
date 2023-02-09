@@ -20,4 +20,8 @@ class Course {
   String get formattedDate {
     return DateFormat.yMMMMd('en_US').format(startDate);
   }
+
+  String get formattedPrice {
+    return NumberFormat.currency(locale: 'th_TH', symbol: '฿').format(price);
+  }
 }

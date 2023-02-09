@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oddshub/data/models/individual_payment_information.dart';
 import 'package:oddshub/styles/colors.dart';
 import 'package:oddshub/data/datasources/remote/registration_remote_datasources.dart';
 import 'package:oddshub/presentation/journey/course/course_list_constants.dart';
@@ -139,7 +140,10 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                                           context,
                                           Routes.individualPayment,
                                           arguments:
-                                              Person('MR.', 'Wut', 'Vort'),
+                                              IndividualPaymentInformation(
+                                            CourseListConstants.clp,
+                                            Person('MR.', 'Pop', 'Kung'),
+                                          ),
                                         )
                                       }
                                     else

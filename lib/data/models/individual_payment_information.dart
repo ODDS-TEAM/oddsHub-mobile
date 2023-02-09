@@ -3,7 +3,7 @@ import 'package:oddshub/data/models/person.dart';
 
 class IndividualPaymentInformation {
   final Course course;
-  final Person person;
+  final Person customer;
 
-  IndividualPaymentInformation(this.course, this.person);
+  IndividualPaymentInformation(this.course, this.customer);
 }

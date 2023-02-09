@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:oddshub/data/models/individual_payment_information.dart';
 import 'package:oddshub/data/models/person.dart';
+import 'package:oddshub/presentation/journey/course/course_list_constants.dart';
 import 'package:oddshub/presentation/journey/registration/individual_payment/individual_payment_constants.dart';
 import 'package:oddshub/presentation/journey/registration/individual_payment/individual_payment_screen.dart';
 
@@ -14,7 +16,9 @@ void main() {
     mockOkButtonDidTap = MockFunction().callback;
   });
 
-  Widget _prepareWidget({Person? person}) {
+  Widget _prepareWidget({
+    IndividualPaymentInformation? individualPaymentInformation,
+  }) {
     return MaterialApp(
       onGenerateRoute: (_) => MaterialPageRoute(
         builder: (context) {
@@ -22,7 +26,7 @@ void main() {
             okButtonDidTap: mockOkButtonDidTap,
           );
         },
-        settings: RouteSettings(arguments: person),
+        settings: RouteSettings(arguments: individualPaymentInformation),
       ),
     );
   }
@@ -76,7 +80,12 @@ void main() {
     'Should display customer full name',
     (tester) async {
       await tester.pumpWidget(
-        _prepareWidget(person: Person('MR.', 'Pop', 'Kung')),
+        _prepareWidget(
+          individualPaymentInformation: IndividualPaymentInformation(
+            CourseListConstants.clp,
+            Person('MR.', 'Pop', 'Kung'),
+          ),
+        ),
       );
 
       expect(
@@ -90,11 +99,16 @@ void main() {
     'Should display course amount',
     (tester) async {
       await tester.pumpWidget(
-        _prepareWidget(person: Person('MR.', 'Pop', 'Kung')),
+        _prepareWidget(
+          individualPaymentInformation: IndividualPaymentInformation(
+            CourseListConstants.clp,
+            Person('MR.', 'Pop', 'Kung'),
+          ),
+        ),
       );
 
       expect(
-        find.text('Price: ฿40,000'),
+        find.text('Price: ฿40,000.00'),
         findsOneWidget,
       );
     },
