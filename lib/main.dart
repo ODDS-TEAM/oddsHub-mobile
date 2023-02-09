@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:oddshub/config.dart';
 import 'package:oddshub/styles/app_textstyles.dart';
 import 'package:oddshub/styles/colors.dart';
 import 'package:oddshub/data/datasources/remote/my_client.dart';
@@ -15,11 +16,16 @@ import 'package:oddshub/presentation/journey/send_email/send_email_screen.dart';
 
 void main() {
   MyClient.httpClient = HttpClient();
-  runApp(const MyApp());
+  runApp(
+    MyApp(
+      appConfigs: AppConfigs(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final AppConfigs appConfigs;
+  const MyApp({Key? key, required this.appConfigs}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +50,13 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: Routes.home,
       routes: {
-        Routes.home: (context) => const HomePage(),
+        Routes.home: (context) => HomePage(appConfigs: appConfigs),
         Routes.registration: (context) => RegistrationScreen(
               onTapDiscardButton: () {
-                Navigator.pushNamed(context, Routes.home);
+                Navigator.popUntil(
+                  context,
+                  ModalRoute.withName(Routes.home),
+                );
               },
             ),
         Routes.individualPayment: (context) => IndividualPaymentScreen(

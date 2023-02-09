@@ -5,7 +5,12 @@ import 'package:oddshub/presentation/journey/course/course_list_constants.dart';
 import 'package:oddshub/presentation/journey/course/widget/course_card.dart';
 
 class CourseListScreen extends StatefulWidget {
-  const CourseListScreen({Key? key}) : super(key: key);
+  final AppConfigs appConfigs;
+
+  const CourseListScreen({
+    Key? key,
+    required this.appConfigs,
+  }) : super(key: key);
 
   @override
   State<CourseListScreen> createState() => _CourseListScreenState();
@@ -22,7 +27,7 @@ class _CourseListScreenState extends State<CourseListScreen> {
           for (var course in courses)
             CourseCard(
               course: course,
-              appConfigs: AppConfigs(),
+              appConfigs: widget.appConfigs,
             )
         ],
       ),
