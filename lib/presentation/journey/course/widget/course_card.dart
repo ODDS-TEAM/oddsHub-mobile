@@ -3,6 +3,7 @@ import 'package:oddshub/data/models/course.dart';
 import 'package:oddshub/routes.dart';
 import 'package:oddshub/styles/colors.dart';
 
+import '../../../../config.dart';
 import '../course_list_constants.dart';
 
 class CourseCard extends StatelessWidget {
@@ -60,9 +61,9 @@ class CourseCard extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 10, 16, 20),
-            child: 1 == 2
-                ? createRegistrationButton(context)
-                : createSendmailButton(context),
+            child: isTrainer
+                ? createSendmailButton(context)
+                : createRegistrationButton(context),
           ),
         ],
       ),
