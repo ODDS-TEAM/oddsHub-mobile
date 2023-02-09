@@ -144,7 +144,11 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                                           arguments:
                                               IndividualPaymentInformation(
                                             CourseListConstants.clp,
-                                            Person('MR.', 'Pop', 'Kung'),
+                                            Person(
+                                              _titleController.text,
+                                              _firstNameController.text,
+                                              _lastNameController.text,
+                                            ),
                                           ),
                                         )
                                       }
