@@ -61,10 +61,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                   margin: const EdgeInsets.all(8),
                   child: ElevatedButton(
                     key: RegistrationConstants.cancelButtonKey,
-                    onPressed: () => Navigator.pushNamed(
-                      context,
-                      Routes.home,
-                    ),
+                    onPressed: _showModal,
                     style: ElevatedButton.styleFrom(primary: Colors.white),
                     child: const Text(
                       'Cancel',
@@ -108,6 +105,26 @@ class _RegistrationScreen extends State<RegistrationScreen> {
               ),
             ],
           )
+        ],
+      ),
+    );
+  }
+
+  Future<void> _showModal() {
+    return showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: const Text(RegistrationConstants.dialogTitle),
+        content: const Text(RegistrationConstants.dialogContent),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.pop(context, 'Cancel'),
+            child: const Text(RegistrationConstants.notNowButton),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, 'OK'),
+            child: const Text(RegistrationConstants.discardButton),
+          ),
         ],
       ),
     );
