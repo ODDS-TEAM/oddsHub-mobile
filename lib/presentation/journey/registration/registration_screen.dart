@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:oddshub/data/models/individual_payment_information.dart';
 import 'package:oddshub/styles/colors.dart';
@@ -148,16 +150,30 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                                       }
                                     else
                                       {
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          const SnackBar(
-                                            backgroundColor: Colors.red,
-                                            content: Text(
-                                              RegistrationConstants
-                                                  .registrationFailedMessage,
-                                            ),
-                                          ),
-                                        )
+                                        // handle if fulled course
+                                        if (jsonDecode(
+                                              response.body,
+                                            )['message'] ==
+                                            'FULLED')
+                                          {
+                                            _showSnackBarErrorMessage(
+                                              context,
+                                              const Text(
+                                                RegistrationConstants
+                                                    .registrationFulledMessage,
+                                              ),
+                                            )
+                                          }
+                                        else
+                                          {
+                                            _showSnackBarErrorMessage(
+                                              context,
+                                              const Text(
+                                                RegistrationConstants
+                                                    .registrationFailedMessage,
+                                              ),
+                                            )
+                                          }
                                       }
                                   },
                                 )
@@ -203,6 +219,17 @@ class _RegistrationScreen extends State<RegistrationScreen> {
             child: const Text(RegistrationConstants.discardButton),
           ),
         ],
+      ),
+    );
+  }
+
+  ScaffoldFeatureController<SnackBar, SnackBarClosedReason>
+      _showSnackBarErrorMessage(BuildContext context, Text message) {
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: Colors.red,
+        content: message,
+        key: RegistrationConstants.snackBarErrorMessageKey,
       ),
     );
   }
