@@ -166,7 +166,10 @@ class _RegistrationScreen extends State<RegistrationScreen> {
             child: const Text(RegistrationConstants.continueButton),
           ),
           TextButton(
-            onPressed: () => Navigator.pushNamed(context, Routes.home),
+            onPressed: () => Navigator.popUntil(
+              context,
+              ModalRoute.withName(Routes.home),
+            ),
             child: const Text(RegistrationConstants.discardButton),
           ),
         ],
