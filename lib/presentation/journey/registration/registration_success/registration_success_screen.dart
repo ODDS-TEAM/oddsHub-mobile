@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:oddshub/colors.dart';
+import 'package:oddshub/styles/app_textstyles.dart';
+import 'package:oddshub/styles/colors.dart';
 import 'package:oddshub/data/models/person.dart';
 import 'package:oddshub/presentation/journey/registration/registration_success/registration_success_constants.dart';
 
@@ -30,11 +31,7 @@ class RegistrationSuccessScreen extends StatelessWidget {
                 Text(
                   key: RegistrationSuccessConstants.titleKey,
                   'Registration Complete',
-                  style: TextStyle(
-                    color: AppColors.green,
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppTextStyles.headlineSuccess,
                 ),
                 const SizedBox(
                   height: 5,

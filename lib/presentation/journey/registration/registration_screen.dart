@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:oddshub/colors.dart';
+import 'package:oddshub/styles/colors.dart';
 import 'package:oddshub/data/datasources/remote/registration_remote_datasources.dart';
 import 'package:oddshub/presentation/journey/course/course_list_constants.dart';
 import 'package:oddshub/presentation/journey/registration/registration_constants.dart';

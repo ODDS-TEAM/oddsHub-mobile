@@ -1,7 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:oddshub/colors.dart';
+import 'package:oddshub/styles/app_textstyles.dart';
+import 'package:oddshub/styles/colors.dart';
 import 'package:oddshub/data/datasources/remote/my_client.dart';
 import 'package:oddshub/presentation/journey/home.dart';
 import 'package:oddshub/presentation/journey/registration/registration_success/registration_success_screen.dart';
@@ -23,36 +24,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'NotoSans',
         textTheme: TextTheme(
-          headline1: TextStyle(
-            color: AppColors.primaryButton,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-          headline2: TextStyle(
-            color: AppColors.primaryButton,
-            fontSize: 24,
-            fontWeight: FontWeight.normal,
-          ),
-          subtitle1: TextStyle(
-            color: AppColors.primaryButton,
-            fontSize: 18,
-            fontWeight: FontWeight.normal,
-          ),
-          bodyText1: TextStyle(
-            color: AppColors.primaryButton,
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-          ),
-          bodyText2: TextStyle(
-            color: AppColors.primaryButton,
-            fontSize: 14,
-            fontWeight: FontWeight.normal,
-          ),
-          button: TextStyle(
-            color: AppColors.secondaryButton,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          headline1: AppTextStyles.headline1,
+          headline2: AppTextStyles.headline2,
+          subtitle1: AppTextStyles.subtitle1,
+          bodyText1: AppTextStyles.bodyText1,
+          bodyText2: AppTextStyles.bodyText2,
+          button: AppTextStyles.button,
         ),
         primarySwatch: AppColors.primaryMaterialColor,
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -64,10 +41,11 @@ class MyApp extends StatelessWidget {
       initialRoute: Routes.home,
       routes: {
         Routes.home: (context) => const HomePage(),
-        Routes.registration: (context) =>
-            RegistrationScreen(onTapDiscardButton: () {
-              Navigator.pushNamed(context, Routes.home);
-            },),
+        Routes.registration: (context) => RegistrationScreen(
+              onTapDiscardButton: () {
+                Navigator.pushNamed(context, Routes.home);
+              },
+            ),
         Routes.registrationSuccess: (context) => RegistrationSuccessScreen(
               okButtonDidTap: () {
                 Navigator.popUntil(
