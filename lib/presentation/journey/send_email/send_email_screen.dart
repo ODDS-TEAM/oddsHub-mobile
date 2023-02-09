@@ -6,8 +6,8 @@ class SendEmailScreen extends StatelessWidget {
   final SendEmailBloc sendEmailBloc = SendEmailBloc();
 
   SendEmailScreen({Key? key}) : super(key: key);
-  Key get sendButtonKey => const Key('send-email-button');
-  Key get backButtonKey => const Key('back-button');
+  Key get sendButtonKey => const Key('send_email_button');
+  Key get backButtonKey => const Key('back_button');
 
   @override
   Widget build(BuildContext context) {

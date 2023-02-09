@@ -28,13 +28,13 @@ void main() {
     final widget = prepareWidget();
     await tester.pumpWidget(widget);
 
-    expect(find.byKey(const Key('send-email-button')), findsOneWidget);
+    expect(find.byKey(const Key('send_email_button')), findsOneWidget);
   });
   testWidgets(
       'when trainer pressing back button then trainer go back to home page ',
       (WidgetTester tester) async {
     final widget = prepareWidget();
-    final backButton = find.byKey(const Key('back-button'));
+    final backButton = find.byKey(const Key('back_button'));
     await tester.pumpWidget(widget);
 
     verify(() => mockObserver.didPush(any(), any()));

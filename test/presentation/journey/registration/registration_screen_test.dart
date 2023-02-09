@@ -25,7 +25,7 @@ void main() {
       'then navigate to registration success screen',
       (WidgetTester tester) async {
     final widget = prepareWidget();
-    final saveButton = find.byKey(const Key('save-button'));
+    final saveButton = find.byKey(const Key('save_button'));
 
     await tester.pumpWidget(widget);
 
@@ -37,7 +37,7 @@ void main() {
       'when user press cancel button '
       'then navigate to course list screen', (WidgetTester tester) async {
     final widget = prepareWidget();
-    final cancelButton = find.byKey(const Key('cancel-button'));
+    final cancelButton = find.byKey(const Key('cancel_button'));
 
     await tester.pumpWidget(widget);
 

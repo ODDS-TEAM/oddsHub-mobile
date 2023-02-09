@@ -28,7 +28,7 @@ class RegistrationModel {
         phoneNumber: json['phoneNumber'],
       );
     } catch (exception) {
-      throw Exception('Somethig went wrong!!');
+      throw Exception('Something went wrong!!');
     }
   }
 }
