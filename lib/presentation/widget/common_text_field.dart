@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 Widget commonTextField(Key key, String text, TextEditingController controller) {
   return Container(
-    margin: const EdgeInsets.all(10),
     height: 55,
     decoration: BoxDecoration(
       color: Colors.grey[200],
