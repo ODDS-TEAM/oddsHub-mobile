@@ -1,21 +1,26 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'pageObject/kw_common.dart';
-import 'pageObject/kw_course_list.dart';
-import 'pageObject/kw_registration.dart';
+import 'pageObject/common_activity.dart';
+import 'pageObject/course_list_screen_activity.dart';
+import 'pageObject/individual_payment_screen_activity.dart';
+import 'pageObject/registration_screen_activity.dart';
 
 void main() {
-  suiteSetUp();
+  CommonActivity.suiteSetUp();
 
   testWidgets('Registration individual payment', (tester) async {
-    final registrationPage = RegistrationPage(tester);
-    await openApplication(tester, 'OddsHub');
-    await registrationPage.clickRegisterButton();
-    await registrationPage.fillInTitle('Nong');
-    await registrationPage.fillInNameAndLastName('Newii', 'Huhu');
-    await registrationPage.fillInEmail('newii@odds.team');
-    await registrationPage.fillInPhoneNumber('0812345678');
-    await registrationPage.clickSaveButton();
-    await registrationPage.clickOKButton();
-    waitUntilTheScreenShowsTitleMessage(tester, 'OddsHub');
+    final commonActivity = CommonActivity(tester);
+    final courseListScreen = CourseListScreenActivity(tester);
+    final registrationScreen = RegistrationScreenActivity(tester);
+    final individualPaymentScreen = IndividualPaymentScreenActivity(tester);
+    
+    await commonActivity.openApplication('OddsHub');
+    await courseListScreen.clickRegisterButton();
+    await registrationScreen.fillInTitle('Nong');
+    await registrationScreen.fillInNameAndLastName('Newii', 'Huhu');
+    await registrationScreen.fillInEmail('newii@odds.team');
+    await registrationScreen.fillInPhoneNumber('0812345678');
+    await registrationScreen.clickSaveButton();
+    await individualPaymentScreen.clickOKButton();
+    courseListScreen.waitUntilTheScreenShowsTitleMessage('OddsHub');
   });
 }
