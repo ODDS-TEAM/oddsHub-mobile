@@ -90,7 +90,7 @@ class CourseCard extends StatelessWidget {
 
   Widget createSendmailButton(BuildContext context) {
     return ElevatedButton(
-      key: CourseListConstants.sendMailButtonKey,
+      key: CourseListConstants.sendEmailButtonKey,
       onPressed: () => Navigator.pushNamed(context, Routes.sendEmail),
       style: ElevatedButton.styleFrom(
         minimumSize: const Size.fromHeight(50),
