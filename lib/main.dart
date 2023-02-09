@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
           headline1: AppTextStyles.headline1,
           headline2: AppTextStyles.headline2,
+          headline3: AppTextStyles.headline3,
           subtitle1: AppTextStyles.subtitle1,
           bodyText1: AppTextStyles.bodyText1,
           bodyText2: AppTextStyles.bodyText2,

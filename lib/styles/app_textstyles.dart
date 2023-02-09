@@ -12,6 +12,11 @@ class AppTextStyles {
     fontSize: 24,
     fontWeight: FontWeight.normal,
   );
+  static TextStyle headline3 = TextStyle(
+    color: AppColors.primary,
+    fontSize: 28,
+    fontWeight: FontWeight.bold,
+  );
   static TextStyle subtitle1 = TextStyle(
     color: AppColors.primaryButton,
     fontSize: 18,
@@ -30,11 +35,6 @@ class AppTextStyles {
   static TextStyle button = TextStyle(
     color: AppColors.secondaryButton,
     fontSize: 20,
-    fontWeight: FontWeight.bold,
-  );
-  static TextStyle headlineSuccess = TextStyle(
-    color: AppColors.green,
-    fontSize: 24,
     fontWeight: FontWeight.bold,
   );
 }

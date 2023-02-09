@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/data/models/individual_payment_information.dart';
-import 'package:oddshub/styles/app_textstyles.dart';
 import 'package:oddshub/styles/colors.dart';
 import 'package:oddshub/presentation/journey/registration/individual_payment/individual_payment_constants.dart';
 
@@ -32,8 +31,8 @@ class IndividualPaymentScreen extends StatelessWidget {
                 ),
                 Text(
                   key: IndividualPaymentConstants.titleKey,
-                  'Registration Complete',
-                  style: AppTextStyles.headlineSuccess,
+                  'One step ahead!',
+                  style: Theme.of(context).textTheme.headline3,
                 ),
                 const SizedBox(
                   height: 5,
