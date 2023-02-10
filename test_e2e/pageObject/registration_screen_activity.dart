@@ -6,7 +6,6 @@ class RegistrationScreenActivity {
 
   RegistrationScreenActivity(this.tester);
 
-
   Future<void> fillInTitle(String title) async {
     final titleTextFieldKey =
         find.byKey(RegistrationConstants.titleTextFieldKey);
@@ -50,6 +49,6 @@ class RegistrationScreenActivity {
     final saveButton = find.byKey(RegistrationConstants.saveButtonKey);
     expect(saveButton, findsOneWidget);
     await tester.tap(saveButton);
-    await tester.pumpAndSettle(const Duration(seconds: 5));
+    await tester.pumpAndSettle();
   }
 }

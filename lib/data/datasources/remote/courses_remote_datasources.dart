@@ -8,7 +8,7 @@ class CoursesRemoteDatasources {
     await MyClient.httpClient.post(
       RemoteDataSourceConstants.host,
       RemoteDataSourceConstants.port,
-      '/course/$courseId/welcome',
+      '/class/1/welcome',
     );
   }
 }

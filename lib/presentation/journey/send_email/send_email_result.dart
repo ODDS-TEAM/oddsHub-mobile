@@ -33,7 +33,12 @@ class SendEmailResult extends StatelessWidget {
               ),
               ElevatedButton(
                 key: SendEmailConstants.goToHomeButtonKey,
-                onPressed: () => Navigator.pushNamed(context, Routes.home),
+                onPressed: () {
+                  Navigator.popUntil(
+                    context,
+                    ModalRoute.withName(Routes.home),
+                  );
+                },
                 child: Text(
                   'Go to Home',
                   style: Theme.of(context).textTheme.button?.copyWith(
