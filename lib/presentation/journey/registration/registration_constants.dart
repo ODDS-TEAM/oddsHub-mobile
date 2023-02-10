@@ -18,6 +18,6 @@ class RegistrationConstants {
   static const String continueButton = 'Continue register';
   static const String discardButton = 'Discard';
   static const String registrationFailedMessage =
-      'Registration failed pleasee try again ka';
+      'Registration failed please try again';
   static const String registrationFulledMessage = 'Course is full';
 }

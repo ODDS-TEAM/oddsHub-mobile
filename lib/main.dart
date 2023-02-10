@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:oddshub/config.dart';
+import 'package:oddshub/data/models/individual_payment_information.dart';
+import 'package:oddshub/data/models/person.dart';
 import 'package:oddshub/styles/app_textstyles.dart';
 import 'package:oddshub/styles/colors.dart';
 import 'package:oddshub/data/datasources/remote/my_client.dart';
@@ -13,6 +15,9 @@ import 'package:oddshub/presentation/journey/send_email/send_email_fail_screen.d
 import 'package:oddshub/presentation/journey/send_email/send_email_success_screen.dart';
 import 'package:oddshub/routes.dart';
 import 'package:oddshub/presentation/journey/send_email/send_email_screen.dart';
+
+import 'presentation/journey/course/course_list_constants.dart';
+import 'presentation/journey/registration/registration_bloc.dart';
 
 void main() {
   MyClient.httpClient = HttpClient();
@@ -58,6 +63,17 @@ class MyApp extends StatelessWidget {
                   ModalRoute.withName(Routes.home),
                 );
               },
+              onSuccess: () {
+                Navigator.pushNamed(
+                  context,
+                  Routes.individualPayment,
+                  arguments: IndividualPaymentInformation(
+                    CourseListConstants.clp,
+                    Person('MR.', 'Pop', 'Kung'),
+                  ),
+                );
+              },
+              registrationBloc: RegistrationBloc(),
             ),
         Routes.individualPayment: (context) => IndividualPaymentScreen(
               okButtonDidTap: () {

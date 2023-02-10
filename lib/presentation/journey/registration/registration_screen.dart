@@ -1,19 +1,24 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:oddshub/data/models/individual_payment_information.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:oddshub/data/entity/registration_user_entity.dart';
+import 'package:oddshub/presentation/journey/registration/registration_bloc.dart';
+import 'package:oddshub/presentation/journey/registration/registration_event.dart';
+import 'package:oddshub/presentation/journey/registration/registration_state.dart';
 import 'package:oddshub/styles/colors.dart';
-import 'package:oddshub/data/datasources/remote/registration_remote_datasources.dart';
 import 'package:oddshub/presentation/journey/course/course_list_constants.dart';
 import 'package:oddshub/presentation/journey/registration/registration_constants.dart';
-import 'package:oddshub/data/models/person.dart';
 import 'package:oddshub/presentation/widget/common_text_field.dart';
-import 'package:oddshub/routes.dart';
 
 class RegistrationScreen extends StatefulWidget {
+  final RegistrationBloc registrationBloc;
   final Function onTapDiscardButton;
-  const RegistrationScreen({Key? key, required this.onTapDiscardButton})
-      : super(key: key);
+  final Function onSuccess;
+  const RegistrationScreen({
+    Key? key,
+    required this.registrationBloc,
+    required this.onTapDiscardButton,
+    required this.onSuccess,
+  }) : super(key: key);
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreen();
@@ -31,171 +36,142 @@ class _RegistrationScreen extends State<RegistrationScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Registration'),
+        title: const Text('registration'),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 30, 16, 10),
-          child: Column(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
+      body: BlocProvider(
+        create: (context) => widget.registrationBloc,
+        child: BlocListener<RegistrationBloc, RegistrationState>(
+          listener: (context, state) {
+            if (state is RegistrationSuccessState) {
+              widget.onSuccess();
+            } else if (state is RegistrationCancelState) {
+              _showModalCancel();
+            } else {
+              _showSnackBarErrorMessage(
+                context,
+                RegistrationConstants.registrationFailedMessage,
+              );
+            }
+          },
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 30, 16, 10),
+              child: Column(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Row(
+                        children: [
+                          Image.asset(
+                            CourseListConstants.clp.image,
+                            height: 30,
+                            width: 50,
+                            fit: BoxFit.fitWidth,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            CourseListConstants.clp.name,
+                            style: Theme.of(context).textTheme.subtitle1,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  commonTextField(
+                    RegistrationConstants.titleTextFieldKey,
+                    'Title (example: Mr., Miss)',
+                    _titleController,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  commonTextField(
+                    RegistrationConstants.firstNameTextFieldKey,
+                    'First name',
+                    _firstNameController,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  commonTextField(
+                    RegistrationConstants.lastNameTextFieldKey,
+                    'Last name',
+                    _lastNameController,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  commonTextField(
+                    RegistrationConstants.emailTextFieldKey,
+                    'Email',
+                    _emailController,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  commonTextField(
+                    RegistrationConstants.phoneNumberTextFieldKey,
+                    'Phone Number',
+                    _phoneNumberController,
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Image.asset(
-                        CourseListConstants.clp.image,
-                        height: 30,
-                        width: 50,
-                        fit: BoxFit.fitWidth,
+                      Expanded(
+                        child: ElevatedButton(
+                          key: RegistrationConstants.cancelButtonKey,
+                          onPressed: () => widget.registrationBloc
+                              .add(RegistrationOnPressCancelEvent()),
+                          style:
+                              ElevatedButton.styleFrom(primary: Colors.white),
+                          child: const Text(
+                            'Cancel',
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
                       ),
                       const SizedBox(
                         width: 10,
                       ),
-                      Text(
-                        CourseListConstants.clp.name,
-                        style: Theme.of(context).textTheme.subtitle1,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              commonTextField(
-                RegistrationConstants.titleTextFieldKey,
-                'Title (example: Mr., Miss)',
-                _titleController,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              commonTextField(
-                RegistrationConstants.firstNameTextFieldKey,
-                'First name',
-                _firstNameController,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              commonTextField(
-                RegistrationConstants.lastNameTextFieldKey,
-                'Last name',
-                _lastNameController,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              commonTextField(
-                RegistrationConstants.emailTextFieldKey,
-                'Email',
-                _emailController,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              commonTextField(
-                RegistrationConstants.phoneNumberTextFieldKey,
-                'Phone Number',
-                _phoneNumberController,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Expanded(
-                    child: ElevatedButton(
-                      key: RegistrationConstants.cancelButtonKey,
-                      onPressed: _showModalCancel,
-                      style: ElevatedButton.styleFrom(primary: Colors.white),
-                      child: const Text(
-                        'Cancel',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: ElevatedButton(
-                      key: RegistrationConstants.saveButtonKey,
-                      onPressed: () => {
-                        setState(
-                          () => {
-                            RegistrationRemoteDatasources()
-                                .submitRegister(
+                      Expanded(
+                        child: ElevatedButton(
+                          key: RegistrationConstants.saveButtonKey,
+                          onPressed: () => {
+                            widget.registrationBloc.add(
+                              RegistrationOnPressSaveEvent(
+                                RegistrationUserEntity(
                                   _titleController.text,
                                   _firstNameController.text,
                                   _lastNameController.text,
                                   _emailController.text,
                                   _phoneNumberController.text,
-                                )
-                                .then(
-                                  (response) => {
-                                    if (response.statusCode == 204)
-                                      {
-                                        Navigator.pushNamed(
-                                          context,
-                                          Routes.individualPayment,
-                                          arguments:
-                                              IndividualPaymentInformation(
-                                            CourseListConstants.clp,
-                                            Person(
-                                              _titleController.text,
-                                              _firstNameController.text,
-                                              _lastNameController.text,
-                                            ),
-                                          ),
-                                        )
-                                      }
-                                    else
-                                      {
-                                        // handle if fulled course
-                                        if (jsonDecode(
-                                              response.body,
-                                            )['message'] ==
-                                            'FULLED')
-                                          {
-                                            _showSnackBarErrorMessage(
-                                              context,
-                                              const Text(
-                                                RegistrationConstants
-                                                    .registrationFulledMessage,
-                                              ),
-                                            )
-                                          }
-                                        else
-                                          {
-                                            _showSnackBarErrorMessage(
-                                              context,
-                                              const Text(
-                                                RegistrationConstants
-                                                    .registrationFailedMessage,
-                                              ),
-                                            )
-                                          }
-                                      }
-                                  },
-                                )
+                                ),
+                              ),
+                            )
                           },
+                          child: Text(
+                            'Save',
+                            style: Theme.of(context)
+                                .textTheme
+                                .button
+                                ?.copyWith(color: AppColors.primaryBackground),
+                          ),
                         ),
-                      },
-                      child: Text(
-                        'Save',
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            ?.copyWith(color: AppColors.primaryBackground),
                       ),
-                    ),
-                  ),
+                    ],
+                  )
                 ],
-              )
-            ],
+              ),
+            ),
           ),
         ),
       ),
@@ -228,11 +204,11 @@ class _RegistrationScreen extends State<RegistrationScreen> {
   }
 
   ScaffoldFeatureController<SnackBar, SnackBarClosedReason>
-      _showSnackBarErrorMessage(BuildContext context, Text message) {
+      _showSnackBarErrorMessage(BuildContext context, String message) {
     return ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         backgroundColor: Colors.red,
-        content: message,
+        content: Text(message),
         key: RegistrationConstants.snackBarErrorMessageKey,
       ),
     );
