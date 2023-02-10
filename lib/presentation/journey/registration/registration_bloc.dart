@@ -28,6 +28,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
         emit(RegistrationFailedState());
       }
     });
+
     on<RegistrationOnPressCancelEvent>((event, emit) async {
       emit(RegistrationCancelState());
     });
