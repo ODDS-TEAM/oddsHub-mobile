@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oddshub/data/entity/registration_user_entity.dart';
+import 'package:oddshub/data/models/person.dart';
 import 'package:oddshub/presentation/journey/registration/registration_bloc.dart';
 import 'package:oddshub/presentation/journey/registration/registration_event.dart';
 import 'package:oddshub/presentation/journey/registration/registration_state.dart';
@@ -12,7 +13,7 @@ import 'package:oddshub/presentation/widget/common_text_field.dart';
 class RegistrationScreen extends StatefulWidget {
   final RegistrationBloc registrationBloc;
   final Function onTapDiscardButton;
-  final Function(String title, String firstName, String lastName) onSuccess;
+  final Function(Person person) onSuccess;
 
   const RegistrationScreen({
     Key? key,
@@ -44,11 +45,8 @@ class _RegistrationScreen extends State<RegistrationScreen> {
         child: BlocListener<RegistrationBloc, RegistrationState>(
           listener: (context, state) {
             if (state is RegistrationSuccessState) {
-              widget.onSuccess(
-                _titleController.text,
-                _firstNameController.text,
-                _lastNameController.text,
-              );
+              widget.onSuccess(Person(_titleController.text,
+                  _firstNameController.text, _lastNameController.text));
             } else if (state is RegistrationCancelState) {
               _showModalCancel();
             } else if (state is RegistrationFullState) {

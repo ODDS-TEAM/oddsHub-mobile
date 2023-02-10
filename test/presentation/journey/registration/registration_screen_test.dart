@@ -2,6 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
+import 'package:oddshub/data/models/person.dart';
 import 'package:oddshub/presentation/journey/registration/__mock__/mock_registration_bloc.dart';
 import 'package:oddshub/presentation/journey/registration/registration_bloc.dart';
 import 'package:oddshub/presentation/journey/registration/registration_constants.dart';
@@ -16,7 +17,7 @@ import '../../../mock/mock_route.dart';
 void main() {
   late MockNavigatorObserver mockNavigatorObserver;
   late Function() mockDiscardButtonTap;
-  late Function() mockOnSuccess;
+  late Function(Person person) mockOnSuccess;
 
   late RegistrationBloc mockRegistrationBloc;
 
@@ -31,7 +32,7 @@ void main() {
     () => {
       mockRegistrationBloc = MockRegistrationBloc(),
       mockNavigatorObserver = MockNavigatorObserver(),
-      mockOnSuccess = MockFunction().callback,
+      mockOnSuccess = MockFunction<Person>().callbackWithArg,
       mockDiscardButtonTap = MockFunction().callback,
     },
   );
