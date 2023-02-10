@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:oddshub/config.dart';
+import 'package:oddshub/data/datasources/remote/registration_remote_datasources.dart';
 import 'package:oddshub/data/models/individual_payment_information.dart';
 import 'package:oddshub/styles/app_textstyles.dart';
 import 'package:oddshub/styles/colors.dart';
@@ -72,7 +73,9 @@ class MyApp extends StatelessWidget {
                   ),
                 );
               },
-              registrationBloc: RegistrationBloc(),
+              registrationBloc: RegistrationBloc(
+                registrationRemoteDatasources: RegistrationRemoteDatasources(),
+              ),
             ),
         Routes.individualPayment: (context) => IndividualPaymentScreen(
               okButtonDidTap: () {

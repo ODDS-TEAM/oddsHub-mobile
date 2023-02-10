@@ -4,13 +4,15 @@ import 'package:oddshub/data/entity/registration_user_entity.dart';
 import 'package:oddshub/presentation/journey/registration/registration_event.dart';
 import 'package:oddshub/presentation/journey/registration/registration_state.dart';
 
-
 class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
-  RegistrationBloc() : super(RegistrationInitialState()) {
+  final RegistrationRemoteDatasources registrationRemoteDatasources;
+  RegistrationBloc({
+    required this.registrationRemoteDatasources,
+  }) : super(RegistrationInitialState()) {
     on<RegistrationOnPressSaveEvent>((event, emit) async {
       try {
         final RegistrationUserEntity data = event.registrationData;
-        final response = await RegistrationRemoteDatasources().submitRegister(
+        final response = await registrationRemoteDatasources.submitRegister(
           data.title,
           data.firstName,
           data.lastName,
