@@ -56,4 +56,29 @@ class RegistrationScreenActivity {
     await tester.tap(saveButton);
     await tester.pumpAndSettle();
   }
+
+  Future<void> clickCancelButton() async {
+    final cancelButton = find.byKey(RegistrationConstants.cancelButtonKey);
+    await tester.tap(cancelButton);
+    await tester.pumpAndSettle();
+  }
+
+  Future<void> showPopUpAndFoundTitlePopUp({
+    required String titleCancel,
+  }) async {
+    final title = find.text(titleCancel);
+    expect(title, findsOneWidget);
+  }
+
+  Future<void> clickDiscardButton() async {
+    final discardButton = find.byKey(RegistrationConstants.discardButtonKey);
+    await tester.tap(discardButton);
+    await tester.pumpAndSettle();
+  }
+
+  Future<void> clickContinueButton() async {
+    final continueButton = find.byKey(RegistrationConstants.continueButtonKey);
+    await tester.tap(continueButton);
+    await tester.pumpAndSettle();
+  }
 }

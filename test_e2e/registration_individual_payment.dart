@@ -16,6 +16,11 @@ void main() {
     await courseListScreen.clickRegisterButton();
     await registrationScreen.fillInTitle('Nong');
     await registrationScreen.fillInNameAndLastName('Newii', 'Huhu');
+    await registrationScreen.clickCancelButton();
+    await registrationScreen.showPopUpAndFoundTitlePopUp(
+      titleCancel: 'Are you sure you want to discard?',
+    );
+    await registrationScreen.clickContinueButton();
     await registrationScreen.fillInEmail('newii@odds.team');
     await registrationScreen.fillInPhoneNumber('0812345678');
     await registrationScreen.clickDoneOnKeyboard();
