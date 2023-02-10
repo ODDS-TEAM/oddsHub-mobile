@@ -7,14 +7,14 @@ void main(List<String> args) {
   CommonActivity.suiteSetUp();
 
   testWidgets('Send Email Successfully', (tester) async {
-    final commonActivity = CommonActivity(tester, isTrainer: true);
-    final sendEmailSuccessActivity = SendEmailSuccessActivity(tester);
+    final commonActivity = CommonActivity(tester, role: 'trainer');
+    final sendEmailSuccessScreen = SendEmailSuccessActivity(tester);
     final courseListScreen = CourseListScreenActivity(tester);
     await commonActivity.openApplication('ODDS');
-    await sendEmailSuccessActivity.clickGoToSendEmailButton();
-    await sendEmailSuccessActivity.clickSendEmailButton();
-    await sendEmailSuccessActivity.foundTextSuccess('Send email success');
-    await sendEmailSuccessActivity.clickGoToHomeButton();
+    await sendEmailSuccessScreen.clickGoToSendEmailButton();
+    await sendEmailSuccessScreen.clickSendEmailButton();
+    await sendEmailSuccessScreen.foundTextSuccess('Send email success');
+    await sendEmailSuccessScreen.clickGoToHomeButton();
     courseListScreen.waitUntilTheScreenShowsTitleMessage('ODDS');
   });
 }
