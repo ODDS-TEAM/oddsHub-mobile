@@ -20,12 +20,13 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
           data.phoneNumber,
         );
         if (response.statusCode == 200) {
-          
           if (response.body == 'FULL') {
             emit(RegistrationFullState());
           }
-           emit(RegistrationSuccessState());
-        } 
+          emit(RegistrationSuccessState());
+        } else {
+          emit(RegistrationFailedState());
+        }
       } on Exception {
         emit(RegistrationFailedState());
       }

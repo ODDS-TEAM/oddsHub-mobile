@@ -53,7 +53,7 @@ void main() {
           'laksa@gmail.com',
           '0898471911',
         ),
-      ).thenAnswer((_) async => Response('', 201));
+      ).thenAnswer((_) async => Response('', 200));
 
       bloc.add(
         RegistrationOnPressSaveEvent(
