@@ -26,6 +26,7 @@ void main() {
     registerFallbackValue(RegistrationEvent);
     registerFallbackValue(RegistrationOnPressCancelEvent());
     registerFallbackValue(RegistrationCancelState());
+    registerFallbackValue(RegistrationFullState());
   });
 
   setUp(
@@ -117,4 +118,35 @@ void main() {
     expect(cancelDialog, findsOneWidget);
     expect(cancelButton, findsOneWidget);
   });
+
+  testWidgets(
+    'when user press save button'
+    'but course is full'
+    'then show snackBar error message',
+    (WidgetTester tester) async {
+      when(() => mockRegistrationBloc.state).thenAnswer(
+        (_) => RegistrationFullState(),
+      );
+
+      whenListen(
+        mockRegistrationBloc,
+        Stream.fromIterable([
+          RegistrationFullState(),
+        ]),
+      );
+
+      final widget = prepareWidget();
+      final saveButton = find.byKey(const Key('save_button'));
+      final fullCourseDialog = find.byKey(
+        RegistrationConstants.snackBarErrorMessageKey,
+      );
+
+      await tester.pumpWidget(widget);
+      await tester.tap(saveButton);
+      await tester.pumpAndSettle();
+
+      expect(fullCourseDialog, findsOneWidget);
+      expect(saveButton, findsOneWidget);
+    },
+  );
 }
