@@ -1,4 +1,3 @@
 class RemoteDataSourceConstants {
-  static const host = '43.225.140.223';
-  static const port = 8080;
+  static const baseUrl = 'http://43.225.140.223:8080';
 }

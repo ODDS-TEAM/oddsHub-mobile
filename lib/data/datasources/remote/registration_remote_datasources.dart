@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:oddshub/data/datasources/remote/constants.dart';
 
 class RegistrationRemoteDatasources {
   Future<http.Response> submitRegister(
@@ -9,7 +10,7 @@ class RegistrationRemoteDatasources {
     String email,
     String phoneNumber,
   ) async {
-    final url = Uri.parse('http://43.225.140.223:8080/registration');
+    final url = Uri.parse('${RemoteDataSourceConstants.baseUrl}/registration');
 
     final body = jsonEncode({
       'title': title,

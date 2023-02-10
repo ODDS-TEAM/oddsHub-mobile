@@ -1,14 +1,14 @@
-import 'package:oddshub/data/datasources/remote/my_client.dart';
-
 import 'package:oddshub/data/datasources/remote/constants.dart';
+import 'package:http/http.dart' as http;
 
 class CoursesRemoteDatasources {
   Future<void> sendEmailWelcome() async {
     const courseId = '1';
-    await MyClient.httpClient.post(
-      RemoteDataSourceConstants.host,
-      RemoteDataSourceConstants.port,
-      '/class/1/welcome',
+    final url = Uri.parse(
+      '${RemoteDataSourceConstants.baseUrl}/course/$courseId/welcome',
+    );
+    await http.post(
+      url,
     );
   }
 }
