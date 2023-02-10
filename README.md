@@ -53,3 +53,4 @@ flutter run --dart-define=IS_TRAINER=false or flutter run
 ```
 flutter run --dart-define=IS_TRAINER=true
 ```
+add `--release` in Release Mode
