@@ -13,8 +13,10 @@ class IndividualPaymentScreenActivity {
     await tester.pumpAndSettle();
   }
 
-  Future<void> foundTitleAndTailText(
-      {required String title, required String tail}) async {
+  Future<void> foundTitleAndTailText({
+    required String title,
+    required String tail,
+  }) async {
     final titleText = find.text(title);
     expect(titleText, findsOneWidget);
     final tailText = find.text(tail);

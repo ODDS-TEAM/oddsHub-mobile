@@ -21,8 +21,9 @@ void main() {
     await registrationScreen.clickDoneOnKeyboard();
     await registrationScreen.clickSaveButton();
     await individualPaymentScreen.foundTitleAndTailText(
-        title: 'One step ahead!',
-        tail: 'Please send the payment slip to this email jane@odds.team');
+      title: 'One step ahead!',
+      tail: 'Please send the payment slip to this email jane@odds.team',
+    );
     await individualPaymentScreen.clickOKButton();
     courseListScreen.waitUntilTheScreenShowsTitleMessage('ODDS');
   });
