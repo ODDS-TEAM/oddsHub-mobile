@@ -45,6 +45,11 @@ class RegistrationScreenActivity {
     await tester.pumpAndSettle();
   }
 
+  Future<void> clickDoneOnKeyboard() async {
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
+  }
+
   Future<void> clickSaveButton() async {
     final saveButton = find.byKey(RegistrationConstants.saveButtonKey);
     expect(saveButton, findsOneWidget);

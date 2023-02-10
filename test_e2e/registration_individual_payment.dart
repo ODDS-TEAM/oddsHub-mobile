@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'pageObject/common_activity.dart';
 import 'pageObject/course_list_screen_activity.dart';
+import 'pageObject/individual_payment_screen_activity.dart';
 import 'pageObject/registration_screen_activity.dart';
 
 void main() {
@@ -10,12 +11,19 @@ void main() {
     final commonActivity = CommonActivity(tester);
     final courseListScreen = CourseListScreenActivity(tester);
     final registrationScreen = RegistrationScreenActivity(tester);
-    
-    await commonActivity.openApplication('OddsHub');
+    final individualPaymentScreen = IndividualPaymentScreenActivity(tester);
+    await commonActivity.openApplication('ODDS');
     await courseListScreen.clickRegisterButton();
     await registrationScreen.fillInTitle('Nong');
     await registrationScreen.fillInNameAndLastName('Newii', 'Huhu');
     await registrationScreen.fillInEmail('newii@odds.team');
     await registrationScreen.fillInPhoneNumber('0812345678');
+    await registrationScreen.clickDoneOnKeyboard();
+    await registrationScreen.clickSaveButton();
+    await individualPaymentScreen.foundTitleAndTailText(
+        title: 'One step ahead!',
+        tail: 'Please send the payment slip to this email jane@odds.team');
+    await individualPaymentScreen.clickOKButton();
+    courseListScreen.waitUntilTheScreenShowsTitleMessage('ODDS');
   });
 }
