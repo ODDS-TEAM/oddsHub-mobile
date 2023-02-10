@@ -17,9 +17,13 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
           data.email,
           data.phoneNumber,
         );
-        if (response.statusCode == 201) {
-          emit(RegistrationSuccessState());
-        }
+        if (response.statusCode == 200) {
+          
+          if (response.body == 'FULL') {
+            emit(RegistrationFullState());
+          }
+           emit(RegistrationSuccessState());
+        } 
       } on Exception {
         emit(RegistrationFailedState());
       }

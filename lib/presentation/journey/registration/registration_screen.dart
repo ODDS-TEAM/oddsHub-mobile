@@ -12,7 +12,8 @@ import 'package:oddshub/presentation/widget/common_text_field.dart';
 class RegistrationScreen extends StatefulWidget {
   final RegistrationBloc registrationBloc;
   final Function onTapDiscardButton;
-  final Function onSuccess;
+  final Function(String title, String firstName, String lastName) onSuccess;
+
   const RegistrationScreen({
     Key? key,
     required this.registrationBloc,
@@ -43,9 +44,18 @@ class _RegistrationScreen extends State<RegistrationScreen> {
         child: BlocListener<RegistrationBloc, RegistrationState>(
           listener: (context, state) {
             if (state is RegistrationSuccessState) {
-              widget.onSuccess();
+              widget.onSuccess(
+                _titleController.text,
+                _firstNameController.text,
+                _lastNameController.text,
+              );
             } else if (state is RegistrationCancelState) {
               _showModalCancel();
+            } else if (state is RegistrationFullState) {
+              _showSnackBarErrorMessage(
+                context,
+                RegistrationConstants.registrationFulledMessage,
+              );
             } else {
               _showSnackBarErrorMessage(
                 context,

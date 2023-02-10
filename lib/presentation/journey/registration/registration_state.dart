@@ -8,5 +8,7 @@ class RegistrationSuccessState extends RegistrationState {}
 
 class RegistrationFailedState extends RegistrationState {}
 
+class RegistrationFullState extends RegistrationState {}
+
 class RegistrationCancelState extends RegistrationState {}
 

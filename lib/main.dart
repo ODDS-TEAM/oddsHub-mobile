@@ -63,13 +63,13 @@ class MyApp extends StatelessWidget {
                   ModalRoute.withName(Routes.home),
                 );
               },
-              onSuccess: () {
+              onSuccess: (title, firstName, lastName) {
                 Navigator.pushNamed(
                   context,
                   Routes.individualPayment,
                   arguments: IndividualPaymentInformation(
                     CourseListConstants.clp,
-                    Person('MR.', 'Pop', 'Kung'),
+                    Person(title, firstName, lastName),
                   ),
                 );
               },
