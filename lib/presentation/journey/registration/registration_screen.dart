@@ -45,8 +45,13 @@ class _RegistrationScreen extends State<RegistrationScreen> {
         child: BlocListener<RegistrationBloc, RegistrationState>(
           listener: (context, state) {
             if (state is RegistrationSuccessState) {
-              widget.onSuccess(Person(_titleController.text,
-                  _firstNameController.text, _lastNameController.text));
+              widget.onSuccess(
+                Person(
+                  _titleController.text,
+                  _firstNameController.text,
+                  _lastNameController.text,
+                ),
+              );
             } else if (state is RegistrationCancelState) {
               _showModalCancel();
             } else if (state is RegistrationFullState) {

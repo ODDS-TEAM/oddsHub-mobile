@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:oddshub/config.dart';
 import 'package:oddshub/data/models/individual_payment_information.dart';
-import 'package:oddshub/data/models/person.dart';
 import 'package:oddshub/styles/app_textstyles.dart';
 import 'package:oddshub/styles/colors.dart';
 import 'package:oddshub/data/datasources/remote/my_client.dart';
