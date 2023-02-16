@@ -16,6 +16,7 @@ import 'package:oddshub/presentation/journey/send_email/send_email_success_scree
 import 'package:oddshub/routes.dart';
 import 'package:oddshub/presentation/journey/send_email/send_email_screen.dart';
 
+import 'course_list/screen.dart';
 import 'presentation/journey/course/course_list_constants.dart';
 import 'presentation/journey/registration/registration_bloc.dart';
 
@@ -53,8 +54,10 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: Routes.home,
+      initialRoute: CourseListScreen.path,
       routes: {
+        CourseListScreen.path: (context) =>
+            CourseListScreen(appConfigs: appConfigs),
         Routes.home: (context) => HomePage(appConfigs: appConfigs),
         Routes.registration: (context) => RegistrationScreen(
               onTapDiscardButton: () {
