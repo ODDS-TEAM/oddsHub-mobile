@@ -38,18 +38,18 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'NotoSans',
         textTheme: TextTheme(
-          headline1: AppTextStyles.headline1,
-          headline2: AppTextStyles.headline2,
-          headline3: AppTextStyles.headline3,
-          subtitle1: AppTextStyles.subtitle1,
-          bodyText1: AppTextStyles.bodyText1,
-          bodyText2: AppTextStyles.bodyText2,
-          button: AppTextStyles.button,
+          displayLarge: AppTextStyles.displayLarge,
+          displayMedium: AppTextStyles.displayMedium,
+          displaySmall: AppTextStyles.displaySmall,
+          titleMedium: AppTextStyles.titleMedium,
+          bodyLarge: AppTextStyles.bodyLarge,
+          bodyMedium: AppTextStyles.bodyMedium,
+          labelLarge: AppTextStyles.labelLarge,
         ),
         primarySwatch: AppColors.primaryMaterialColor,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            primary: AppColors.primaryButton,
+            backgroundColor: AppColors.primaryButton,
           ),
         ),
       ),

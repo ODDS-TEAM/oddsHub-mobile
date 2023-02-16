@@ -16,7 +16,7 @@ void main() {
     mockOkButtonDidTap = MockFunction().callback;
   });
 
-  Widget _prepareWidget({
+  Widget prepareWidget({
     IndividualPaymentInformation? individualPaymentInformation,
   }) {
     return MaterialApp(
@@ -34,7 +34,7 @@ void main() {
   testWidgets(
     'ok button can be pressed so that the user can go back to home screen',
     (WidgetTester tester) async {
-      await tester.pumpWidget(_prepareWidget());
+      await tester.pumpWidget(prepareWidget());
 
       final okButton = find.byKey(IndividualPaymentConstants.okButtonKey);
       await tester.scrollUntilVisible(okButton, 20);
@@ -47,7 +47,7 @@ void main() {
   testWidgets(
     'Should display individual payment information',
     (tester) async {
-      await tester.pumpWidget(_prepareWidget());
+      await tester.pumpWidget(prepareWidget());
 
       expect(
         find.byKey(IndividualPaymentConstants.titleKey),
@@ -80,7 +80,7 @@ void main() {
     'Should display customer full name',
     (tester) async {
       await tester.pumpWidget(
-        _prepareWidget(
+        prepareWidget(
           individualPaymentInformation: IndividualPaymentInformation(
             CourseListConstants.clp,
             Person('MR.', 'Pop', 'Kung'),
@@ -99,7 +99,7 @@ void main() {
     'Should display course amount',
     (tester) async {
       await tester.pumpWidget(
-        _prepareWidget(
+        prepareWidget(
           individualPaymentInformation: IndividualPaymentInformation(
             CourseListConstants.clp,
             Person('MR.', 'Pop', 'Kung'),

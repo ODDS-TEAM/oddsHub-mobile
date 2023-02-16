@@ -56,7 +56,7 @@ class SendEmailScreen extends StatelessWidget {
                       ),
                       child: Text(
                         'Send',
-                        style: Theme.of(context).textTheme.button?.copyWith(
+                        style: Theme.of(context).textTheme.labelLarge?.copyWith(
                               color: AppColors.primaryBackground,
                             ),
                       ),

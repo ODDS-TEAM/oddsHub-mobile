@@ -32,7 +32,7 @@ class IndividualPaymentScreen extends StatelessWidget {
                 Text(
                   key: IndividualPaymentConstants.titleKey,
                   'One step ahead!',
-                  style: Theme.of(context).textTheme.headline3,
+                  style: Theme.of(context).textTheme.displaySmall,
                 ),
                 const SizedBox(
                   height: 5,
@@ -40,7 +40,7 @@ class IndividualPaymentScreen extends StatelessWidget {
                 Text(
                   key: IndividualPaymentConstants.subtitleKey,
                   name,
-                  style: Theme.of(context).textTheme.subtitle1,
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
                 const SizedBox(
                   height: 20,
@@ -48,7 +48,7 @@ class IndividualPaymentScreen extends StatelessWidget {
                 Text(
                   key: IndividualPaymentConstants.priceKey,
                   'Price: $price',
-                  style: Theme.of(context).textTheme.headline1,
+                  style: Theme.of(context).textTheme.displayLarge,
                 ),
                 const SizedBox(
                   height: 20,
@@ -56,7 +56,7 @@ class IndividualPaymentScreen extends StatelessWidget {
                 Text(
                   key: IndividualPaymentConstants.paymentMethodTitleKey,
                   'Payment method',
-                  style: Theme.of(context).textTheme.subtitle2,
+                  style: Theme.of(context).textTheme.titleSmall,
                 ),
                 const SizedBox(
                   height: 5,
@@ -73,7 +73,7 @@ class IndividualPaymentScreen extends StatelessWidget {
                 Text(
                   key: IndividualPaymentConstants.paymentDescriptionKey,
                   'Please send the payment slip to this email jane@odds.team',
-                  style: Theme.of(context).textTheme.subtitle1,
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
                 const SizedBox(
                   height: 10,

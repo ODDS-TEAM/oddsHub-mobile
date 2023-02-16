@@ -29,7 +29,7 @@ class SendEmailResult extends StatelessWidget {
               ),
               Text(
                 message,
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.displayLarge,
               ),
               ElevatedButton(
                 key: SendEmailConstants.goToHomeButtonKey,
@@ -41,7 +41,7 @@ class SendEmailResult extends StatelessWidget {
                 },
                 child: Text(
                   'Go to Home',
-                  style: Theme.of(context).textTheme.button?.copyWith(
+                  style: Theme.of(context).textTheme.labelLarge?.copyWith(
                         color: AppColors.primaryBackground,
                       ),
                 ),

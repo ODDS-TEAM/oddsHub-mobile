@@ -87,7 +87,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                           ),
                           Text(
                             CourseListConstants.clp.name,
-                            style: Theme.of(context).textTheme.subtitle1,
+                            style: Theme.of(context).textTheme.titleMedium,
                           ),
                         ],
                       ),
@@ -144,8 +144,9 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                           key: RegistrationConstants.cancelButtonKey,
                           onPressed: () => widget.registrationBloc
                               .add(RegistrationOnPressCancelEvent()),
-                          style:
-                              ElevatedButton.styleFrom(primary: Colors.white),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                          ),
                           child: const Text(
                             'Cancel',
                             style: TextStyle(color: Colors.black),
@@ -175,7 +176,7 @@ class _RegistrationScreen extends State<RegistrationScreen> {
                             'Save',
                             style: Theme.of(context)
                                 .textTheme
-                                .button
+                                .labelLarge
                                 ?.copyWith(color: AppColors.primaryBackground),
                           ),
                         ),

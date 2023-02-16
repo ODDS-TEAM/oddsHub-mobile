@@ -29,14 +29,14 @@ class CourseCard extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
             child: Text(
               course.name,
-              style: Theme.of(context).textTheme.headline1,
+              style: Theme.of(context).textTheme.displayLarge,
             ),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 0, 16, 20),
             child: Text(
               course.formattedDate,
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
           Image.asset(course.image),
@@ -50,7 +50,7 @@ class CourseCard extends StatelessWidget {
               ),
               title: Text(
                 course.instructor,
-                style: Theme.of(context).textTheme.subtitle1,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
           ),
@@ -58,7 +58,7 @@ class CourseCard extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 10),
             child: Text(
               course.description,
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ),
           Padding(
@@ -81,7 +81,7 @@ class CourseCard extends StatelessWidget {
       ),
       child: Text(
         'Register',
-        style: Theme.of(context).textTheme.button?.copyWith(
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(
               color: AppColors.primaryBackground,
             ),
       ),
@@ -97,7 +97,7 @@ class CourseCard extends StatelessWidget {
       ),
       child: Text(
         'Go to send email',
-        style: Theme.of(context).textTheme.button?.copyWith(
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(
               color: AppColors.primaryBackground,
             ),
       ),
