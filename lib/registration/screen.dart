@@ -96,6 +96,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     child: ElevatedButton(
                       key: const Key('save_button'),
                       onPressed: () {
+                        FocusScope.of(context).unfocus();
                         final registration = Registration(
                           title: titleController.text,
                           firstName: firstNameController.text,
@@ -113,7 +114,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             ),
                           );
                         } else {
-                          // TODO route to payment screen
+                          // something
                         }
                       },
                       style: ElevatedButton.styleFrom(
