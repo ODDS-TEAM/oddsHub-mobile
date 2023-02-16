@@ -17,4 +17,12 @@ class Registration {
   String toString() {
     return '$title, $firstName, $lastName, $email, $phoneNumber';
   }
+
+  bool validate() {
+    return title.isNotEmpty &&
+        firstName.isNotEmpty &&
+        lastName.isNotEmpty &&
+        email.isNotEmpty &&
+        phoneNumber.isNotEmpty;
+  }
 }

@@ -96,14 +96,25 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     child: ElevatedButton(
                       key: const Key('save_button'),
                       onPressed: () {
-                        // TODO route to payment screen
-                        Registration(
+                        final registration = Registration(
                           title: titleController.text,
                           firstName: firstNameController.text,
                           lastName: lastNameController.text,
                           email: emailController.text,
                           phoneNumber: phoneNumberController.text,
                         );
+                        if (!registration.validate()) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              backgroundColor: Colors.red,
+                              content:
+                                  Text('Registration failed please try again'),
+                              key: Key('snackbar_error_message'),
+                            ),
+                          );
+                        } else {
+                          // TODO route to payment screen
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
