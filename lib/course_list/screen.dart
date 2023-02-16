@@ -21,7 +21,10 @@ class CourseListScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: courses.length,
         itemBuilder: (context, index) {
-          return CourseCard(course: courses[index]);
+          return CourseCard(
+            course: courses[index],
+            isTrainer: appConfigs.isTrainer,
+          );
         },
       ),
     );

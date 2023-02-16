@@ -7,8 +7,9 @@ import '../models/course.dart';
 
 class CourseCard extends StatelessWidget {
   final Course course;
-
-  const CourseCard({Key? key, required this.course}) : super(key: key);
+  final bool isTrainer;
+  const CourseCard({Key? key, required this.course, required this.isTrainer})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,77 +24,98 @@ class CourseCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 16, 16, 10),
-            child: Text(
-              course.name,
-              style: Theme.of(context).textTheme.displayLarge,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 20),
-            child: Text(
-              course.formattedDate,
-              style: Theme.of(context).textTheme.titleMedium,
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  course.name,
+                  style: Theme.of(context).textTheme.displayLarge,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  course.formattedDate,
+                  style: Theme.of(context).textTheme.titleMedium,
+                )
+              ],
             ),
           ),
           Image.asset(course.image),
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 8, 16, 0),
-            child: ListTile(
-              leading: const CircleAvatar(
-                backgroundImage: AssetImage(CourseListConstants.oddsLogoImage),
-              ),
-              title: Text(
-                course.instructor,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                TrainerProfileTag(course: course),
+                const SizedBox(height: 16),
+                Text(
+                  course.description,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+                const SizedBox(height: 16),
+                CourseActionButton(
+                  label: isTrainer ? 'Go to send email' : 'Register',
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      isTrainer ? Routes.sendEmail : Routes.registration,
+                    );
+                  },
+                ),
+              ],
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 10),
-            child: Text(
-              course.description,
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 10, 16, 20),
-            child: createRegistrationButton(context),
           ),
         ],
       ),
     );
   }
+}
 
-  Widget createRegistrationButton(BuildContext context) {
+class CourseActionButton extends StatelessWidget {
+  final String label;
+  final void Function()? onPressed;
+
+  const CourseActionButton({
+    super.key,
+    required this.label,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return ElevatedButton(
       key: CourseListConstants.registerButtonKey,
-      onPressed: () => Navigator.pushNamed(context, Routes.registration),
+      onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         minimumSize: const Size.fromHeight(50),
       ),
       child: Text(
-        'Register',
+        label,
         style: Theme.of(context).textTheme.labelLarge?.copyWith(
               color: AppColors.primaryBackground,
             ),
       ),
     );
   }
+}
 
-  Widget createSendmailButton(BuildContext context) {
-    return ElevatedButton(
-      key: CourseListConstants.sendEmailButtonKey,
-      onPressed: () => Navigator.pushNamed(context, Routes.sendEmail),
-      style: ElevatedButton.styleFrom(
-        minimumSize: const Size.fromHeight(50),
-      ),
-      child: Text(
-        'Go to send email',
-        style: Theme.of(context).textTheme.labelLarge?.copyWith(
-              color: AppColors.primaryBackground,
-            ),
-      ),
+class TrainerProfileTag extends StatelessWidget {
+  final Course course;
+
+  const TrainerProfileTag({super.key, required this.course});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        const CircleAvatar(
+          backgroundImage: AssetImage(CourseListConstants.oddsLogoImage),
+        ),
+        const SizedBox(width: 16),
+        Text(
+          course.instructor,
+          style: Theme.of(context).textTheme.titleMedium,
+        )
+      ],
     );
   }
 }
