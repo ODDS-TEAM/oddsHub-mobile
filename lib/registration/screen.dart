@@ -3,6 +3,7 @@ import 'package:oddshub/config.dart';
 import 'package:oddshub/course_list/models/course.dart';
 import 'package:oddshub/course_list/screen.dart';
 import 'package:oddshub/registration/model.dart';
+import 'package:oddshub/registration/service.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static String path = '/registration';
@@ -95,28 +96,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   Expanded(
                     child: ElevatedButton(
                       key: const Key('save_button'),
-                      onPressed: () {
-                        FocusScope.of(context).unfocus();
-                        final registration = Registration(
-                          title: titleController.text,
-                          firstName: firstNameController.text,
-                          lastName: lastNameController.text,
-                          email: emailController.text,
-                          phoneNumber: phoneNumberController.text,
-                        );
-                        if (!registration.validate()) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              backgroundColor: Colors.red,
-                              content:
-                                  Text('Registration failed please try again'),
-                              key: Key('snackbar_error_message'),
-                            ),
-                          );
-                        } else {
-                          // something
-                        }
-                      },
+                      onPressed: () => onSave(context, course.classId),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
                       ),
@@ -160,6 +140,47 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         );
       },
     );
+  }
+
+  void onSave(BuildContext context, int classId) {
+    FocusScope.of(context).unfocus();
+    final registration = Registration(
+      title: titleController.text,
+      firstName: firstNameController.text,
+      lastName: lastNameController.text,
+      email: emailController.text,
+      phoneNumber: phoneNumberController.text,
+    );
+    if (!registration.validate()) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          backgroundColor: Colors.red,
+          content: Text('Registration failed please try again'),
+          key: Key('snackbar_error_message'),
+        ),
+      );
+    } else {
+      RegistrationService.register(
+        registration.toRequestRegistration(classId),
+      ).then((value) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            backgroundColor: Colors.green,
+            content: Text('Registration successfully'),
+          ),
+        );
+        Navigator.of(context).popUntil(
+          ModalRoute.withName(CourseListScreen.path),
+        );
+      }).catchError((e) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: Colors.red,
+            content: Text(e.toString()),
+          ),
+        );
+      });
+    }
   }
 }
 

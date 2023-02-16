@@ -25,4 +25,15 @@ class Registration {
         email.isNotEmpty &&
         phoneNumber.isNotEmpty;
   }
+
+  Map<String, dynamic> toRequestRegistration(int classId) {
+    final data = <String, dynamic>{};
+    data['title'] = title;
+    data['firstName'] = firstName;
+    data['lastName'] = lastName;
+    data['email'] = email;
+    data['phone'] = phoneNumber;
+    data['classId'] = classId;
+    return data;
+  }
 }

@@ -2,6 +2,7 @@ import 'package:intl/intl.dart';
 
 class Course {
   final int id;
+  final int classId;
   final String name;
   final String image;
   final String description;
@@ -11,6 +12,7 @@ class Course {
 
   Course(
     this.id,
+    this.classId,
     this.name,
     this.image,
     this.description,
@@ -21,8 +23,9 @@ class Course {
 
   Course.fromJson(Map<String, dynamic> json)
       : id = json['id'],
+        classId = json['classId'],
         name = json['name'],
-        image = 'assets/images/courses/clp.png',
+        image = json['image'],
         description = json['description'],
         instructor = json['instructor'],
         price = double.tryParse(json['price'].toString()) ?? 0,
