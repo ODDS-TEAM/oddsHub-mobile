@@ -58,6 +58,7 @@ class CourseCard extends StatelessWidget {
                     Navigator.pushNamed(
                       context,
                       isTrainer ? Routes.sendEmail : Routes.registration,
+                      arguments: course,
                     );
                   },
                 ),
