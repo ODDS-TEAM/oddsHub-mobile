@@ -16,7 +16,7 @@ samples, guidance on mobile development, and a full API reference.
 
 # SET UP
 - install `FVM` (Flutter Version Management) or install `SDK`
-- using flutter `3.0.5`
+- using flutter `3.7.3`
 - run `flutter doctor` and do follow the suggest step for make the check on doctor summary
 - run `flutter pub get`
 
