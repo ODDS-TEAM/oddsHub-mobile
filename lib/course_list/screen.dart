@@ -13,7 +13,7 @@ class CourseListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Course> courses = [
-      CourseListConstants.clp,
+      CourseListConstants.productDiscovery,
       CourseListConstants.clp
     ];
     return Scaffold(
