@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:oddshub/routes.dart';
 import 'package:oddshub/styles/colors.dart';
 
-import '../course_list_constants.dart';
 import '../models/course.dart';
 
 class CourseCard extends StatelessWidget {
@@ -84,7 +83,7 @@ class CourseActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      key: CourseListConstants.registerButtonKey,
+      key: const Key('register_button_key'),
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         minimumSize: const Size.fromHeight(50),
@@ -109,7 +108,7 @@ class TrainerProfileTag extends StatelessWidget {
     return Row(
       children: [
         const CircleAvatar(
-          backgroundImage: AssetImage(CourseListConstants.oddsLogoImage),
+          backgroundImage: AssetImage('assets/images/logo.png'),
         ),
         const SizedBox(width: 16),
         Text(
