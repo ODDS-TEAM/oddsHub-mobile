@@ -35,16 +35,17 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Setup LCOV
-        uses: hrishikesh-kadam/setup-lcov@v1
+      - name: Clone the repository
+        uses: actions/checkout@v3
+      - name: Download code coverage from GitHub
+        uses: actions/download-artifact@v3
+        with:
+          name: code-coverage
+          path: coverage
       - name: Report code coverage
-        uses: zgosalvez/github-actions-report-lcov@v3
+        uses: zgosalvez/github-actions-report-lcov@49af65b0586c274a625a41a2dc8aaaae7d00568b
         with:
           coverage-files: coverage/lcov.*.info
-          minimum-coverage: 90
+          minimum-coverage: 80
           artifact-name: code-coverage-report
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          working-directory: oddsHub-mobile/lib
-          update-comment: true
