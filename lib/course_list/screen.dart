@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:oddshub/config.dart';
 import 'package:oddshub/course_list/service.dart';
 
-import 'models/course.dart';
+import 'course.dart';
 import 'widgets/course_card.dart';
 
 class CourseListScreen extends StatefulWidget {

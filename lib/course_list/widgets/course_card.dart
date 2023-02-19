@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:oddshub/routes.dart';
 import 'package:oddshub/styles/colors.dart';
 
-import '../models/course.dart';
+import '../course.dart';
 
 class CourseCard extends StatelessWidget {
   final Course course;

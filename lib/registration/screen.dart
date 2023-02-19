@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/config.dart';
-import 'package:oddshub/course_list/models/course.dart';
+import 'package:oddshub/course_list/course.dart';
 import 'package:oddshub/course_list/screen.dart';
 import 'package:oddshub/registration/model.dart';
 import 'package:oddshub/registration/service.dart';

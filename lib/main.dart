@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:oddshub/config.dart';
-import 'package:oddshub/data/datasources/remote/my_client.dart';
 import 'package:oddshub/registration/screen.dart';
 import 'package:oddshub/styles/app_textstyles.dart';
 import 'package:oddshub/styles/colors.dart';
@@ -10,7 +7,6 @@ import 'package:oddshub/styles/colors.dart';
 import 'course_list/screen.dart';
 
 void main() {
-  MyClient.httpClient = HttpClient();
   runApp(
     MyApp(
       appConfigs: AppConfigs(),

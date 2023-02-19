@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:oddshub/config.dart';
-import 'package:oddshub/data/datasources/remote/my_client.dart';
 import 'package:oddshub/main.dart';
 
 class CommonActivity {
@@ -19,7 +16,6 @@ class CommonActivity {
   Future<void> openApplication(
     String title,
   ) async {
-    MyClient.httpClient = HttpClient();
     final isTrainer = role == 'trainer';
     await tester.pumpWidget(
       MyApp(
