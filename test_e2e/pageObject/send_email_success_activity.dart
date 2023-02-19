@@ -1,19 +1,18 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:oddshub/presentation/journey/course/course_list_constants.dart';
-import 'package:oddshub/presentation/journey/send_email/send_email_constants.dart';
 
 class SendEmailSuccessActivity {
   final WidgetTester tester;
   SendEmailSuccessActivity(this.tester);
 
   Future<void> clickGoToSendEmailButton() async {
-    final goToSendEmail = find.byKey(CourseListConstants.sendEmailButtonKey);
+    final goToSendEmail = find.byKey(const Key('send-email'));
     await tester.tap(goToSendEmail);
     await tester.pumpAndSettle();
   }
 
   Future<void> clickSendEmailButton() async {
-    final sendButton = find.byKey(SendEmailConstants.sendButtonKey);
+    final sendButton = find.byKey(const Key('send-button'));
     await tester.tap(sendButton);
     await tester.pumpAndSettle();
   }
@@ -25,7 +24,7 @@ class SendEmailSuccessActivity {
   }
 
   Future<void> clickGoToHomeButton() async {
-    final goToHomeButton = find.byKey(SendEmailConstants.goToHomeButtonKey);
+    final goToHomeButton = find.byKey(const Key('go-home-button'));
     await tester.tap(goToHomeButton);
     await tester.pumpAndSettle();
   }

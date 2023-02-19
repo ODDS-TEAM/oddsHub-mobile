@@ -1,5 +1,5 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:oddshub/presentation/journey/registration/registration_constants.dart';
 
 class RegistrationScreenActivity {
   final WidgetTester tester;
@@ -7,8 +7,7 @@ class RegistrationScreenActivity {
   RegistrationScreenActivity(this.tester);
 
   Future<void> fillInTitle(String title) async {
-    final titleTextFieldKey =
-        find.byKey(RegistrationConstants.titleTextFieldKey);
+    final titleTextFieldKey = find.byKey(const Key('tiele'));
     await tester.enterText(
       titleTextFieldKey,
       title,
@@ -18,12 +17,12 @@ class RegistrationScreenActivity {
 
   Future<void> fillInNameAndLastName(String firstName, String lastName) async {
     await tester.enterText(
-      find.byKey(RegistrationConstants.firstNameTextFieldKey),
+      find.byKey(const Key('first_name')),
       firstName,
     );
     await tester.pumpAndSettle();
     await tester.enterText(
-      find.byKey(RegistrationConstants.lastNameTextFieldKey),
+      find.byKey(const Key('last_name')),
       lastName,
     );
     await tester.pumpAndSettle();
@@ -31,7 +30,7 @@ class RegistrationScreenActivity {
 
   Future<void> fillInEmail(String email) async {
     await tester.enterText(
-      find.byKey(RegistrationConstants.emailTextFieldKey),
+      find.byKey(const Key('key')),
       email,
     );
     await tester.pumpAndSettle();
@@ -39,7 +38,7 @@ class RegistrationScreenActivity {
 
   Future<void> fillInPhoneNumber(String phoneNumber) async {
     await tester.enterText(
-      find.byKey(RegistrationConstants.phoneNumberTextFieldKey),
+      find.byKey(const Key('phone_number')),
       phoneNumber,
     );
     await tester.pumpAndSettle();
@@ -51,14 +50,14 @@ class RegistrationScreenActivity {
   }
 
   Future<void> clickSaveButton() async {
-    final saveButton = find.byKey(RegistrationConstants.saveButtonKey);
+    final saveButton = find.byKey(const Key('save_button'));
     expect(saveButton, findsOneWidget);
     await tester.tap(saveButton);
     await tester.pumpAndSettle();
   }
 
   Future<void> clickCancelButton() async {
-    final cancelButton = find.byKey(RegistrationConstants.cancelButtonKey);
+    final cancelButton = find.byKey(const Key('cancel_button'));
     await tester.tap(cancelButton);
     await tester.pumpAndSettle();
   }
@@ -71,13 +70,13 @@ class RegistrationScreenActivity {
   }
 
   Future<void> clickDiscardButton() async {
-    final discardButton = find.byKey(RegistrationConstants.discardButtonKey);
+    final discardButton = find.byKey(const Key('discard_button'));
     await tester.tap(discardButton);
     await tester.pumpAndSettle();
   }
 
   Future<void> clickContinueButton() async {
-    final continueButton = find.byKey(RegistrationConstants.continueButtonKey);
+    final continueButton = find.byKey(const Key('continue_button'));
     await tester.tap(continueButton);
     await tester.pumpAndSettle();
   }

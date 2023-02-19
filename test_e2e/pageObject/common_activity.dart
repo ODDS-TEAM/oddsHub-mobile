@@ -26,6 +26,6 @@ class CommonActivity {
         appConfigs: AppConfigs(overrideIsTrainer: isTrainer),
       ),
     );
-    await tester.pump(const Duration(seconds: 1));
+    await tester.pumpAndSettle(const Duration(seconds: 1));
   }
 }
