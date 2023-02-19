@@ -5,7 +5,7 @@ import 'package:oddshub/styles/colors.dart';
 import 'package:oddshub/styles/constant.dart';
 import 'package:oddshub/styles/text.dart';
 
-import 'course.dart';
+import 'model.dart';
 import 'widgets/course_card.dart';
 
 class CourseListScreen extends StatefulWidget {

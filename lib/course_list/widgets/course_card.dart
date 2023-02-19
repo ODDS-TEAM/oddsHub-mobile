@@ -4,7 +4,7 @@ import 'package:oddshub/styles/shadow.dart';
 import 'package:oddshub/styles/constant.dart';
 import 'package:oddshub/styles/text.dart';
 
-import '../course.dart';
+import '../model.dart';
 
 class CourseCard extends StatelessWidget {
   static const double height = 420.0;

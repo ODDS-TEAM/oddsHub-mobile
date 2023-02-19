@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:oddshub/utils/client.dart';
 
-import 'course.dart';
+import 'model.dart';
 
 class CourseService {
   static Future<List<Course>> getCourses() async {

@@ -36,6 +36,10 @@ class Course {
   }
 
   String get formattedPrice {
-    return NumberFormat.currency(locale: 'th_TH', symbol: '฿').format(price);
+    return NumberFormat.currency(
+      locale: 'th_TH',
+      symbol: '฿',
+      decimalDigits: 2,
+    ).format(price);
   }
 }
