@@ -38,7 +38,7 @@ jobs:
       - name: Clone the repository
         uses: actions/checkout@v3
       - name: Download code coverage from GitHub
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@3be87be14a055c47b01d3bd88f8fe02320a9bb60
         with:
           name: code-coverage
           path: coverage
