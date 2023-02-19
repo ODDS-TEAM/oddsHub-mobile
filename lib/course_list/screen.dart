@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:oddshub/config.dart';
 import 'package:oddshub/course_list/service.dart';
 import 'package:oddshub/styles/colors.dart';
+import 'package:oddshub/styles/constant.dart';
 import 'package:oddshub/styles/text.dart';
 
 import 'course.dart';
@@ -80,7 +81,7 @@ class BaseTabView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 24),
+        padding: const EdgeInsets.symmetric(vertical: kSpaceBetweenItem),
         child: Column(
           children: [
             Courses(
@@ -88,7 +89,7 @@ class BaseTabView extends StatelessWidget {
               courses: datas,
               isTrainer: widget.appConfigs.isTrainer,
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: kSpaceBetweenItem),
             Courses(
               label: '$type Category 1',
               courses: datas,
@@ -120,7 +121,7 @@ class Courses extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            margin: const EdgeInsets.symmetric(horizontal: 24),
+            margin: const EdgeInsets.symmetric(horizontal: kSpaceBetweenItem),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -142,7 +143,7 @@ class Courses extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: kSpaceBetweenText),
           Expanded(
             child: ListView.builder(
               shrinkWrap: true,
@@ -151,12 +152,12 @@ class Courses extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Row(
                   children: [
-                    if (index == 0) const SizedBox(width: 24),
+                    if (index == 0) const SizedBox(width: kSpaceBetweenItem),
                     CourseCard(
                       course: courses[index],
                       isTrainer: isTrainer,
                     ),
-                    const SizedBox(width: 24),
+                    const SizedBox(width: kSpaceBetweenItem),
                   ],
                 );
               },

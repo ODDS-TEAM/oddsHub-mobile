@@ -13,11 +13,6 @@ class Registration {
     required this.phoneNumber,
   });
 
-  @override
-  String toString() {
-    return '$title, $firstName, $lastName, $email, $phoneNumber';
-  }
-
   bool validate() {
     return title.isNotEmpty &&
         firstName.isNotEmpty &&

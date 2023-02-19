@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/styles/colors.dart';
+import 'package:oddshub/styles/shadow.dart';
+import 'package:oddshub/styles/constant.dart';
 import 'package:oddshub/styles/text.dart';
 
 import '../course.dart';
 
 class CourseCard extends StatelessWidget {
-  static const double height = 400.0;
+  static const double height = 420.0;
+  static const double imageHeight = 200.0;
   final Course course;
   final bool isTrainer;
   const CourseCard({
@@ -16,35 +19,29 @@ class CourseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double width80percent = MediaQuery.of(context).size.width * 0.8;
     return Container(
       height: CourseCard.height,
-      margin: const EdgeInsets.only(bottom: 10),
-      width: MediaQuery.of(context).size.width * 0.8,
+      margin: const EdgeInsets.only(bottom: kSpaceBetweenText),
+      width: width80percent,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(kBorderRadius),
         color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            offset: const Offset(0, 4),
-            blurRadius: 15,
-            spreadRadius: -5,
-            color: AppColors.primaryColor.withOpacity(0.25),
-          ),
-        ],
+        boxShadow: [AppShadows.card],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 200,
+            height: imageHeight,
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(course.image),
                 fit: BoxFit.cover,
               ),
               borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
+                topLeft: Radius.circular(kBorderRadius),
+                topRight: Radius.circular(kBorderRadius),
               ),
             ),
           ),
@@ -56,36 +53,38 @@ class CourseCard extends StatelessWidget {
 }
 
 class CardDetail extends StatelessWidget {
+  static int maxTitleLine = 3;
+  static int maxDetailLine = 4;
+  final Course course;
+
   const CardDetail({
     super.key,
     required this.course,
   });
 
-  final Course course;
-
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(kBorderRadius),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               course.name,
               style: AppTextStyles.labelLarge,
-              maxLines: 3,
+              maxLines: maxTitleLine,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: kSpaceBetweenText),
             Text(
               course.description,
               style: AppTextStyles.bodySmall2.copyWith(
                 color: AppColors.primaryColor.shade200,
               ),
-              maxLines: 4,
+              maxLines: maxDetailLine,
               overflow: TextOverflow.clip,
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: kSpaceBetweenText),
             TrainerProfileTag(course: course),
           ],
         ),

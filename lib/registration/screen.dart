@@ -4,6 +4,7 @@ import 'package:oddshub/course_list/course.dart';
 import 'package:oddshub/course_list/screen.dart';
 import 'package:oddshub/registration/model.dart';
 import 'package:oddshub/registration/service.dart';
+import 'package:oddshub/styles/constant.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static String path = '/registration';
@@ -31,7 +32,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         behavior: HitTestBehavior.translucent,
         onTap: () => FocusScope.of(context).unfocus(),
         child: Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(kSpaceBetweenText),
           child: Column(
             children: [
               Row(
@@ -54,29 +55,29 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 firstNameController: titleController,
                 label: 'Title (example Mr. Miss)',
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: kSpaceBetweenText),
               OutlinedTextField(
                 firstNameController: firstNameController,
                 label: 'First name',
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: kSpaceBetweenText),
               OutlinedTextField(
                 firstNameController: lastNameController,
                 label: 'Last name',
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: kSpaceBetweenText),
               OutlinedTextField(
                 firstNameController: emailController,
                 label: 'E-mail',
                 keyboardType: TextInputType.emailAddress,
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: kSpaceBetweenText),
               OutlinedTextField(
                 firstNameController: phoneNumberController,
                 label: 'Phone number',
                 keyboardType: TextInputType.number,
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: kSpaceBetweenText),
               Row(
                 children: [
                   Expanded(
@@ -92,7 +93,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 16),
+                  const SizedBox(width: kSpaceBetweenText),
                   Expanded(
                     child: ElevatedButton(
                       key: const Key('save_button'),
