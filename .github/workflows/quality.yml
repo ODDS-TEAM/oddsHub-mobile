@@ -29,23 +29,22 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test
-  test-coverage:
+      - run: flutter test --coverage
+  coverage_report:
+    name: Generate coverage report
+    needs: test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: "3.7.3"
-          channel: "stable"
-      - run: flutter test --coverage ./lib
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Setup LCOV
         uses: hrishikesh-kadam/setup-lcov@v1
       - name: Report code coverage
         uses: zgosalvez/github-actions-report-lcov@v3
         with:
           coverage-files: coverage/lcov.*.info
-          minimum-coverage: 80
+          minimum-coverage: 90
           artifact-name: code-coverage-report
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          working-directory: ./lib
+          working-directory: oddsHub-mobile/lib
           update-comment: true
