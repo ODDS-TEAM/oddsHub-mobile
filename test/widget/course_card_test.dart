@@ -17,6 +17,7 @@ void main() {
             'Jane Makub',
             40000,
             DateTime.parse('2023-06-12'),
+            ClassPeople(20, 30),
           ),
           isTrainer: false,
         ),

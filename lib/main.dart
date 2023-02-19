@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/config.dart';
+import 'package:oddshub/course_list/widgets/detail.dart';
 import 'package:oddshub/registration/screen.dart';
 import 'package:oddshub/styles/colors.dart';
 
@@ -35,6 +36,8 @@ class MyApp extends StatelessWidget {
             CourseListScreen(appConfigs: appConfigs),
         RegistrationScreen.path: (context) =>
             RegistrationScreen(appConfigs: appConfigs),
+        ClassDetailScreen.path: (context) => const ClassDetailScreen(),
+        CourseDetailScreen.path: (context) => const CourseDetailScreen(),
       },
     );
   }

@@ -5,10 +5,10 @@ import 'package:oddshub/styles/constant.dart';
 import 'package:oddshub/styles/text.dart';
 
 import '../model.dart';
+import 'course_image.dart';
 
 class CourseCard extends StatelessWidget {
   static const double height = 420.0;
-  static const double imageHeight = 200.0;
   final Course course;
   final bool isTrainer;
   const CourseCard({
@@ -32,19 +32,7 @@ class CourseCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            height: imageHeight,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(course.image),
-                fit: BoxFit.cover,
-              ),
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(kBorderRadius),
-                topRight: Radius.circular(kBorderRadius),
-              ),
-            ),
-          ),
+          CourseImage(course: course),
           CardDetail(course: course),
         ],
       ),
@@ -103,7 +91,7 @@ class TrainerProfileTag extends StatelessWidget {
     return Row(
       children: [
         Text(
-          'by ${course.instructor}',
+          course.instructor,
           style: AppTextStyles.bodySmall.copyWith(
             color: AppColors.primaryColor.shade200,
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/config.dart';
 import 'package:oddshub/course_list/service.dart';
+import 'package:oddshub/course_list/widgets/detail.dart';
 import 'package:oddshub/styles/colors.dart';
 import 'package:oddshub/styles/constant.dart';
 import 'package:oddshub/styles/text.dart';
@@ -52,11 +53,13 @@ class _CourseListScreenState extends State<CourseListScreen> {
               type: 'Classes',
               datas: classes,
               widget: widget,
+              detailPath: ClassDetailScreen.path,
             ),
             BaseTabView(
               type: 'Courses',
               datas: courses,
               widget: widget,
+              detailPath: CourseDetailScreen.path,
             ),
           ],
         ),
@@ -67,6 +70,7 @@ class _CourseListScreenState extends State<CourseListScreen> {
 
 class BaseTabView extends StatelessWidget {
   final String type;
+  final String detailPath;
   final List<Course> datas;
   final CourseListScreen widget;
 
@@ -75,6 +79,7 @@ class BaseTabView extends StatelessWidget {
     required this.type,
     required this.datas,
     required this.widget,
+    required this.detailPath,
   });
 
   @override
@@ -88,12 +93,14 @@ class BaseTabView extends StatelessWidget {
               label: 'Upcoming $type',
               courses: datas,
               isTrainer: widget.appConfigs.isTrainer,
+              detailPath: detailPath,
             ),
             const SizedBox(height: kSpaceBetweenItem),
             Courses(
               label: '$type Category 1',
               courses: datas,
               isTrainer: widget.appConfigs.isTrainer,
+              detailPath: detailPath,
             ),
           ],
         ),
@@ -106,12 +113,14 @@ class Courses extends StatelessWidget {
   final String label;
   final List<Course> courses;
   final bool isTrainer;
+  final String detailPath;
 
   const Courses({
     super.key,
     required this.label,
     required this.courses,
     required this.isTrainer,
+    required this.detailPath,
   });
 
   @override
@@ -150,15 +159,21 @@ class Courses extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: courses.length,
               itemBuilder: (context, index) {
-                return Row(
-                  children: [
-                    if (index == 0) const SizedBox(width: kSpaceBetweenItem),
-                    CourseCard(
-                      course: courses[index],
-                      isTrainer: isTrainer,
-                    ),
-                    const SizedBox(width: kSpaceBetweenItem),
-                  ],
+                return GestureDetector(
+                  onTap: () => Navigator.of(context).pushNamed(
+                    detailPath,
+                    arguments: courses[index],
+                  ),
+                  child: Row(
+                    children: [
+                      if (index == 0) const SizedBox(width: kSpaceBetweenItem),
+                      CourseCard(
+                        course: courses[index],
+                        isTrainer: isTrainer,
+                      ),
+                      const SizedBox(width: kSpaceBetweenItem),
+                    ],
+                  ),
                 );
               },
             ),
