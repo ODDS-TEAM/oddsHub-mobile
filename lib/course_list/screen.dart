@@ -17,12 +17,14 @@ class CourseListScreen extends StatefulWidget {
 }
 
 class _CourseListScreenState extends State<CourseListScreen> {
+  List<Course> classes = [];
   List<Course> courses = [];
   @override
   void initState() {
     CourseService.getCourses().then((value) {
       setState(() {
-        courses = value;
+        classes = value;
+        courses = [...value, ...value];
       });
     });
     super.initState();
@@ -30,26 +32,69 @@ class _CourseListScreenState extends State<CourseListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('ODDS')),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 24),
-          child: Column(
-            children: [
-              Courses(
-                label: 'Upcoming Classes',
-                courses: courses,
-                isTrainer: widget.appConfigs.isTrainer,
-              ),
-              const SizedBox(height: 24),
-              Courses(
-                label: 'Classes Category 1',
-                courses: courses,
-                isTrainer: widget.appConfigs.isTrainer,
-              ),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('ODDS'),
+          bottom: const TabBar(
+            tabs: [
+              Tab(text: 'Classes'),
+              Tab(text: 'Courses'),
             ],
           ),
+        ),
+        body: TabBarView(
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            BaseTabView(
+              type: 'Classes',
+              datas: classes,
+              widget: widget,
+            ),
+            BaseTabView(
+              type: 'Courses',
+              datas: courses,
+              widget: widget,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class BaseTabView extends StatelessWidget {
+  final String type;
+  final List<Course> datas;
+  final CourseListScreen widget;
+
+  const BaseTabView({
+    super.key,
+    required this.type,
+    required this.datas,
+    required this.widget,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 24),
+        child: Column(
+          children: [
+            Courses(
+              label: 'Upcoming $type',
+              courses: datas,
+              isTrainer: widget.appConfigs.isTrainer,
+            ),
+            const SizedBox(height: 24),
+            Courses(
+              label: '$type Category 1',
+              courses: datas,
+              isTrainer: widget.appConfigs.isTrainer,
+            ),
+          ],
         ),
       ),
     );
