@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oddshub/config.dart';
 import 'package:oddshub/registration/screen.dart';
-import 'package:oddshub/styles/app_textstyles.dart';
 import 'package:oddshub/styles/colors.dart';
 
 import 'course_list/screen.dart';
@@ -23,19 +22,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         fontFamily: 'NotoSans',
-        textTheme: TextTheme(
-          displayLarge: AppTextStyles.displayLarge,
-          displayMedium: AppTextStyles.displayMedium,
-          displaySmall: AppTextStyles.displaySmall,
-          titleMedium: AppTextStyles.titleMedium,
-          bodyLarge: AppTextStyles.bodyLarge,
-          bodyMedium: AppTextStyles.bodyMedium,
-          labelLarge: AppTextStyles.labelLarge,
-        ),
-        primarySwatch: AppColors.primaryMaterialColor,
+        primarySwatch: AppColors.primaryColor,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.primaryButton,
+            backgroundColor: AppColors.primaryColor,
           ),
         ),
       ),

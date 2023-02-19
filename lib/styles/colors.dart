@@ -1,30 +1,20 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static Color primary = const Color(0xff393944);
-  static Color primaryButton = const Color(0xff393944);
-  static Color secondaryButton = const Color(0xffc0bcbc);
-
-  static Color primaryBackground = const Color(0xffffffff);
-  static Color secondaryBackground = const Color(0xffe3e3e3);
-
-  static Color green = const Color(0xff268b08);
-  static Color success = Colors.lightGreen;
-  static Color error = Colors.red;
-
-  static MaterialColor primaryMaterialColor = const MaterialColor(
-    0xff393944,
+  static const int _primaryBase = 0xFF393944;
+  static MaterialColor primaryColor = const MaterialColor(
+    _primaryBase,
     <int, Color>{
-      50: Color.fromRGBO(57, 57, 68, .1),
-      100: Color.fromRGBO(57, 57, 68, .2),
-      200: Color.fromRGBO(57, 57, 68, .3),
-      300: Color.fromRGBO(57, 57, 68, .4),
-      400: Color.fromRGBO(57, 57, 68, .5),
-      500: Color.fromRGBO(57, 57, 68, .6),
-      600: Color.fromRGBO(57, 57, 68, .7),
-      700: Color.fromRGBO(57, 57, 68, .8),
-      800: Color.fromRGBO(57, 57, 68, .9),
-      900: Color.fromRGBO(57, 57, 68, 1),
+      900: Color(0xFF0F0F14),
+      800: Color(0xFF181820),
+      700: Color(0xFF2C2C37),
+      600: Color(0xFF2C2C37),
+      500: Color(_primaryBase),
+      400: Color(0xFF4A4A56),
+      300: Color(0xFF5C5C68),
+      200: Color(0xFF767682),
+      100: Color(0xFF888894),
+      50: Color(0xFFA0A0AB),
     },
   );
 }
